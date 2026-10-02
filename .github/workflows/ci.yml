@@ -14,7 +14,7 @@ concurrency:
 
 jobs:
   validate:
-    name: Astro check and build
+    name: Lint, check, and build
     runs-on: ubuntu-latest
 
     steps:
@@ -33,6 +33,9 @@ jobs:
 
       - name: Install dependencies
         run: pnpm install --no-frozen-lockfile
+
+      - name: Lint Markdown
+        run: pnpm lint:md
 
       - name: Check Astro and TypeScript
         run: pnpm check
