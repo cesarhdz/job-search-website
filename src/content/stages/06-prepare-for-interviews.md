@@ -1,8 +1,8 @@
 ---
 order: 6
-title: Prepare for interviews
-description: Use the role, company, your experience, and previous feedback to prepare for each conversation.
-goal: Focus preparation on the evidence and gaps that matter for this interview.
+title: Prepara entrevistas
+description: Usa la vacante, la empresa, tu experiencia y feedback previo para preparar cada conversación.
+goal: Concentrar la preparación en la evidencia y los gaps que importan para esa entrevista.
 ---
 
-Interview preparation remains primarily an AI task; the software contributes context and preserves feedback.
+La preparación sigue siendo principalmente una tarea para la IA. El software aporta contexto y conserva notas y feedback.
