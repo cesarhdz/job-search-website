@@ -1,6 +1,7 @@
 {
   "name": "Workday",
-  "status": "reviewed",
+  "status": "candidate",
+  "published": false,
   "type": "ats",
   "markets": [],
   "profiles": [],

@@ -1,6 +1,7 @@
 {
   "name": "HacesFalta México",
-  "status": "reviewed",
+  "status": "candidate",
+  "published": false,
   "type": "aggregator",
   "markets": [],
   "profiles": [],

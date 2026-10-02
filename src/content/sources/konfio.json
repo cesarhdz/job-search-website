@@ -1,6 +1,7 @@
 {
   "name": "Konfío",
-  "status": "reviewed",
+  "status": "candidate",
+  "published": false,
   "type": "company",
   "markets": [],
   "profiles": [],

@@ -1,6 +1,7 @@
 {
   "name": "Remote Talent LATAM",
-  "status": "reviewed",
+  "status": "candidate",
+  "published": false,
   "type": "agency",
   "markets": [],
   "profiles": [],

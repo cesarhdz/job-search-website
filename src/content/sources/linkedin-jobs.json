@@ -1,6 +1,7 @@
 {
   "name": "LinkedIn Jobs",
-  "status": "reviewed",
+  "status": "candidate",
+  "published": false,
   "type": "aggregator",
   "markets": [],
   "profiles": [],

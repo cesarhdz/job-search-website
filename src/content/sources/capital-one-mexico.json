@@ -1,6 +1,7 @@
 {
   "name": "Capital One Mexico",
-  "status": "reviewed",
+  "status": "candidate",
+  "published": false,
   "type": "company",
   "markets": [],
   "profiles": [],

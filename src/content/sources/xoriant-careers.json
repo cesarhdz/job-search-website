@@ -1,6 +1,7 @@
 {
   "name": "Xoriant Careers",
-  "status": "reviewed",
+  "status": "candidate",
+  "published": false,
   "type": "agency",
   "markets": [],
   "profiles": [],
