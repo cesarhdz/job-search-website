@@ -1,8 +1,8 @@
 ---
 order: 5
-title: Apply and track
-description: Keep applications, dates, notes, follow-ups, and next actions organized as the search progresses.
-goal: Know what happened and what needs attention next.
+title: Aplica y da seguimiento
+description: Mantén aplicaciones, fechas, notas, follow-ups y siguientes pasos organizados.
+goal: Saber qué pasó y qué requiere atención ahora.
 ---
 
-Tracking is durable state. AI can read and update it, but the workspace remains the source of truth.
+El tracking es estado durable. La IA puede consultarlo y actualizarlo, pero el workspace sigue siendo la fuente de verdad.
