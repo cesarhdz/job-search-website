@@ -1,5 +1,32 @@
 ---
 import Layout from '../layouts/Layout.astro';
+
+const steps = [
+  {
+    order: '01',
+    title: 'Prepararte',
+    description: 'Define qué buscas, construye tu perfil y deja listos tus materiales y tu sistema.',
+    href: 'prepararte',
+  },
+  {
+    order: '02',
+    title: 'Encontrar oportunidades',
+    description: 'Elige buenas fuentes, mejora tus búsquedas y usa alertas y networking con intención.',
+    href: 'encontrar-oportunidades',
+  },
+  {
+    order: '03',
+    title: 'Decidir y aplicar',
+    description: 'Evalúa el fit y la empresa, prioriza oportunidades y prepara cada aplicación.',
+    href: 'decidir-y-aplicar',
+  },
+  {
+    order: '04',
+    title: 'Avanzar y cerrar',
+    description: 'Da seguimiento, prepara entrevistas, aprende del proceso y evalúa ofertas.',
+    href: 'avanzar-y-cerrar',
+  },
+];
 ---
 
 <Layout>
@@ -7,39 +34,29 @@ import Layout from '../layouts/Layout.astro';
     <p class="eyebrow">México primero · IA como herramienta de trabajo</p>
     <h1>Busca trabajo con IA, sin perder el control.</h1>
     <p class="lede">
-      Una guía curada y herramientas abiertas para organizar mejor tu búsqueda, mantener contexto entre sesiones y usar la IA donde realmente ayuda.
+      Una guía práctica para usar IA durante toda tu búsqueda: desde definir qué buscas hasta cerrar una oferta.
     </p>
-    <div class="actions">
-      <a class="button primary" href={`${import.meta.env.BASE_URL}guia/`}>Empezar por la guía</a>
-      <a class="button" href="https://github.com/cesarhdz/job-search-tools">Ver las herramientas</a>
+  </section>
+
+  <section class="section steps-section">
+    <p class="eyebrow">¿En qué parte de tu búsqueda estás?</p>
+    <div class="steps-grid">
+      {steps.map((step) => (
+        <a class="step-card" href={`${import.meta.env.BASE_URL}guia/#${step.href}`}>
+          <p class="stage-number">{step.order}</p>
+          <h2>{step.title}</h2>
+          <p>{step.description}</p>
+          <span class="step-link">Ver este paso →</span>
+        </a>
+      ))}
     </div>
   </section>
 
-  <section class="section">
-    <p class="eyebrow">Cómo lo pensamos</p>
-    <div class="grid">
-      <article class="card">
-        <h2>Orientación</h2>
-        <p>Pocos recursos bien escogidos para cada etapa de la búsqueda, con contexto para saber cuándo vale la pena usarlos.</p>
-      </article>
-      <article class="card">
-        <h2>IA</h2>
-        <p>La IA busca, analiza, compara, escribe y ayuda a prepararte. No queremos reconstruir lo que ya hace bien.</p>
-      </article>
-      <article class="card">
-        <h2>Software</h2>
-        <p>Memoria, triage, tracking y notas para lo que se vuelve difícil de manejar dentro de una conversación larga.</p>
-      </article>
-    </div>
-  </section>
-
-  <section class="section">
-    <p class="eyebrow">Para quién empieza</p>
-    <div class="card">
-      <h2>Profesionales en México que ya usan IA de forma práctica</h2>
-      <p>
-        El punto de partida son perfiles digitales y de tecnología que ya usan herramientas de IA para trabajar y quieren aplicarlas a una búsqueda laboral más estructurada. El contenido puede ampliarse después, pero no intentaremos cubrir todo desde el inicio.
-      </p>
-    </div>
+  <section class="section principle">
+    <p class="eyebrow">La idea</p>
+    <h2>La IA puede buscar, analizar, escribir y preparar. Tú mantienes las decisiones.</h2>
+    <p class="lede">
+      El sitio reúne orientación, recursos curados y herramientas para avanzar más rápido sin delegar el control de tu búsqueda.
+    </p>
   </section>
 </Layout>
