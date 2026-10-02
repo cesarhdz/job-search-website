@@ -7,28 +7,33 @@ const sections = [
     order: '01',
     title: 'Prepararte',
     description: 'Construye una base clara antes de empezar a buscar.',
-    topics: ['Define qué buscas', 'Construye tu perfil profesional', 'Prepara tus materiales', 'Configura tu sistema'],
+    topics: [
+      { title: 'Define qué buscas', href: 'prepararte/definir-que-buscas' },
+      { title: 'Construye tu perfil profesional', href: 'prepararte/perfil-profesional' },
+      { title: 'Prepara tus materiales', href: 'prepararte/materiales' },
+      { title: 'Configura tu sistema', href: 'prepararte/sistema' },
+    ],
   },
   {
     id: 'encontrar-oportunidades',
     order: '02',
     title: 'Encontrar oportunidades',
     description: 'Descubre vacantes sin tener que revisar todo Internet.',
-    topics: ['Fuentes', 'Búsquedas y palabras clave', 'Alertas', 'Networking y referrals'],
+    topics: ['Fuentes', 'Búsquedas y palabras clave', 'Alertas', 'Networking y referrals'].map((title) => ({ title })),
   },
   {
     id: 'decidir-y-aplicar',
     order: '03',
     title: 'Decidir y aplicar',
     description: 'Convierte muchas vacantes en pocas decisiones buenas.',
-    topics: ['Evalúa el fit', 'Evalúa la empresa', 'Prioriza y haz triage', 'Prepara la aplicación'],
+    topics: ['Evalúa el fit', 'Evalúa la empresa', 'Prioriza y haz triage', 'Prepara la aplicación'].map((title) => ({ title })),
   },
   {
     id: 'avanzar-y-cerrar',
     order: '04',
     title: 'Avanzar y cerrar',
     description: 'Maneja el proceso después de aplicar y lleva cada oportunidad hasta una decisión.',
-    topics: ['Tracking y follow-up', 'Entrevistas', 'Feedback y aprendizaje', 'Oferta y cierre'],
+    topics: ['Tracking y follow-up', 'Entrevistas', 'Feedback y aprendizaje', 'Oferta y cierre'].map((title) => ({ title })),
   },
 ];
 ---
@@ -51,7 +56,7 @@ const sections = [
           <p>{section.description}</p>
         </div>
         <ol class="topic-list">
-          {section.topics.map((topic) => <li>{topic}</li>)}
+          {section.topics.map((topic) => <li>{topic.href ? <a href={topic.href}>{topic.title}</a> : topic.title}</li>)}
         </ol>
       </article>
     ))}
