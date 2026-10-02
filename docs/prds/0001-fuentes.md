@@ -41,7 +41,7 @@ Schema inicial:
 name:
 slug:
 url:
-status: candidate | validated
+status: candidate | reviewed
 
 type:
 markets: []
@@ -94,6 +94,12 @@ Tipos iniciales a validar durante la carga de contenido:
 
 La taxonomía puede cambiar cuando se pruebe contra fuentes reales.
 
+### Source vs. búsqueda
+
+Una búsqueda configurada sobre una fuente no es una fuente nueva. Por ejemplo, `LinkedIn Jobs` es una fuente; `Product Engineer en México` o `Senior Product Manager en México` son búsquedas/presets que usan esa fuente.
+
+El inventario inicial debe normalizar estas entradas en lugar de duplicar `Source`. Del mismo modo, una alerta es una capacidad de una fuente cuando aplique, no necesariamente una fuente independiente.
+
 ## Estados editoriales
 
 ### candidate
@@ -102,11 +108,11 @@ La fuente fue descubierta y parece potencialmente útil, pero todavía no fue re
 
 Puede vivir en el repositorio sin aparecer en la experiencia pública principal.
 
-### validated
+### reviewed
 
-La fuente fue revisada editorialmente y tiene información suficiente y actual para publicarse.
+La fuente ya fue usada o revisada editorialmente y tiene evidencia suficiente para tratarla como parte del catálogo. Antes de publicarla, sus datos y copy pueden requerir una revisión de actualidad.
 
-La transición de `candidate` a `validated` requiere verificar como mínimo:
+La transición de `candidate` a `reviewed` requiere comprobar como mínimo:
 
 - que la fuente sigue activa;
 - qué tipo de oportunidades contiene;
@@ -151,7 +157,7 @@ Home y explorador del catálogo.
 Debe incluir:
 
 - búsqueda;
-- resultados de fuentes validadas;
+- resultados de fuentes revisadas;
 - filtros útiles;
 - búsquedas curadas/presets;
 - explicación breve de los tipos de fuentes;
@@ -222,7 +228,7 @@ El build debe poder exponer una representación JSON del catálogo público, por
 /fuentes.json
 ```
 
-Debe incluir sólo contenido publicable/validado y los campos necesarios para consumo externo.
+Debe incluir sólo contenido publicable/revisado y los campos necesarios para consumo externo.
 
 Esto permite reutilizar el catálogo desde la propia UI, herramientas futuras o AI hosts sin introducir una API o backend.
 
@@ -230,7 +236,7 @@ La implementación puede decidir si la búsqueda consume directamente este JSON 
 
 ## Contenido e imágenes
 
-Cada fuente validada necesita una redacción breve y verificable.
+Cada fuente revisada necesita una redacción breve y verificable.
 
 El contenido inicial debe priorizar:
 
@@ -269,15 +275,16 @@ La IA puede ayudar a descubrir fuentes y proponer candidatos, pero descubrir una
 El catálogo conserva explícitamente la diferencia entre:
 
 ```text
-candidate → validated
+candidate → reviewed
 ```
 
 La persona mantiene el criterio editorial y puede revisar qué fuentes existen, por qué se recomiendan y cuándo fueron verificadas.
 
 ## Milestones
 
-- [ ] M1 — Validar el schema con 5–10 fuentes reales
-- [ ] M2 — Crear Content Collections para Source y SourceType
+- [x] M1 — Probar el schema contra el inventario inicial de fuentes
+- [x] M2 — Crear Content Collection inicial para Source
+- [ ] M2b — Definir SourceType como contenido estructurado
 - [ ] M3 — Cargar y validar el dataset inicial
 - [ ] M4 — Implementar `/fuentes/`, `/fuentes/tipos/` y páginas individuales
 - [ ] M5 — Agregar búsqueda, filtros y búsquedas curadas
@@ -291,4 +298,4 @@ La persona mantiene el criterio editorial y puede revisar qué fuentes existen, 
 - ¿Qué filtros aportan realmente en V1?
 - ¿Qué búsquedas curadas son útiles para el lanzamiento?
 - ¿Qué assets visuales podemos usar consistentemente entre fuentes?
-- ¿Cuántas fuentes validadas son suficientes para lanzar?
+- ¿Cuántas fuentes revisadas son suficientes para lanzar?
