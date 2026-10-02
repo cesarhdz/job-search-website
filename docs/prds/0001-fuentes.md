@@ -42,6 +42,7 @@ name:
 slug:
 url:
 status: candidate | reviewed
+published: false
 
 type:
 markets: []
@@ -62,6 +63,8 @@ alerts:
 
 last_reviewed:
 ```
+
+`status` y `published` representan dimensiones independientes: `status` describe la madurez editorial; `published` controla si la fuente forma parte del catálogo público.
 
 Los campos se dividen conceptualmente en:
 
@@ -106,7 +109,7 @@ El inventario inicial debe normalizar estas entradas en lugar de duplicar `Sourc
 
 La fuente fue descubierta y parece potencialmente útil, pero todavía no fue revisada suficientemente para recomendarla o describirla públicamente.
 
-Puede vivir en el repositorio sin aparecer en la experiencia pública principal.
+Puede vivir en el repositorio independientemente de su visibilidad pública.
 
 ### reviewed
 
@@ -121,6 +124,10 @@ La transición de `candidate` a `reviewed` requiere comprobar como mínimo:
 - URL oficial;
 - copy editorial;
 - fecha de revisión.
+
+La publicación se controla por separado con `published`. Una fuente `reviewed` puede permanecer sin publicar, y cambiar su visibilidad no altera su estado editorial.
+
+El inventario importado inicialmente comienza como `candidate` y `published: false`. Que una fuente estuviera activa en otro flujo de trabajo no implica que ya haya pasado la revisión editorial de este catálogo.
 
 No se necesita un workflow más complejo en V1.
 
@@ -157,7 +164,7 @@ Home y explorador del catálogo.
 Debe incluir:
 
 - búsqueda;
-- resultados de fuentes revisadas;
+- resultados de fuentes publicadas;
 - filtros útiles;
 - búsquedas curadas/presets;
 - explicación breve de los tipos de fuentes;
@@ -228,7 +235,7 @@ El build debe poder exponer una representación JSON del catálogo público, por
 /fuentes.json
 ```
 
-Debe incluir sólo contenido publicable/revisado y los campos necesarios para consumo externo.
+Debe incluir sólo fuentes con `published: true` y los campos necesarios para consumo externo.
 
 Esto permite reutilizar el catálogo desde la propia UI, herramientas futuras o AI hosts sin introducir una API o backend.
 
@@ -236,7 +243,7 @@ La implementación puede decidir si la búsqueda consume directamente este JSON 
 
 ## Contenido e imágenes
 
-Cada fuente revisada necesita una redacción breve y verificable.
+Antes de publicar una fuente debe tener una redacción breve y verificable.
 
 El contenido inicial debe priorizar:
 
@@ -272,10 +279,11 @@ Para identidad visual:
 
 La IA puede ayudar a descubrir fuentes y proponer candidatos, pero descubrir una fuente no equivale a recomendarla.
 
-El catálogo conserva explícitamente la diferencia entre:
+El catálogo conserva dos decisiones explícitas e independientes:
 
 ```text
-candidate → reviewed
+status: candidate → reviewed
+published: false → true
 ```
 
 La persona mantiene el criterio editorial y puede revisar qué fuentes existen, por qué se recomiendan y cuándo fueron verificadas.
