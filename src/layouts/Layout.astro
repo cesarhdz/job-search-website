@@ -1,0 +1,40 @@
+---
+import '../styles/global.css';
+
+interface Props {
+  title?: string;
+  description?: string;
+}
+
+const {
+  title = 'Buscar trabajo con IA',
+  description = 'Guía, herramientas y recursos curados para buscar trabajo desde México usando la IA que ya usas.',
+} = Astro.props;
+---
+
+<!doctype html>
+<html lang="es-MX">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width" />
+    <meta name="description" content={description} />
+    <meta name="generator" content={Astro.generator} />
+    <title>{title}</title>
+  </head>
+  <body>
+    <header class="site-header">
+      <a class="brand" href={import.meta.env.BASE_URL}>Buscar trabajo</a>
+      <nav aria-label="Principal">
+        <a href={`${import.meta.env.BASE_URL}guia/`}>Guía</a>
+        <a href="https://github.com/cesarhdz/job-search-tools">Herramientas</a>
+        <a href="https://github.com/cesarhdz/job-search-website">GitHub</a>
+      </nav>
+    </header>
+    <main>
+      <slot />
+    </main>
+    <footer>
+      <p>Guía y herramientas abiertas para buscar trabajo con IA.</p>
+    </footer>
+  </body>
+</html>
