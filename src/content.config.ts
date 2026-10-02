@@ -35,6 +35,7 @@ const sources = defineCollection({
     name: z.string(),
     url: z.string().url().optional(),
     status: z.enum(['candidate', 'reviewed']).default('candidate'),
+    published: z.boolean().default(false),
     type: z.enum(['company', 'agency', 'ats', 'aggregator', 'email', 'web']),
     markets: z.array(z.string()).default([]),
     profiles: z.array(z.string()).default([]),
