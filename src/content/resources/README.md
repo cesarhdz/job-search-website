@@ -1,20 +1,27 @@
-# Resources
+# Recursos
 
-Curated external resources live here as YAML or JSON entries.
+Los recursos externos curados viven aquí como YAML o JSON.
 
-Example:
+El sitio está en español y empieza enfocado en México. Un recurso puede estar en inglés o ser global si aporta suficiente valor para esa audiencia.
+
+Ejemplo:
 
 ```yaml
-title: Example resource
+title: Recurso de ejemplo
 url: https://example.com
 type: article
-stage: define-your-search
-summary: Why this resource is useful.
+stage: find-opportunities
+summary: Por qué vale la pena este recurso.
 bestFor:
-  - First-time job seekers
+  - Product managers buscando trabajo remoto desde México
 source: Example publisher
+language: es
+markets:
+  - MX
 commercialRelationship: none
 status: candidate
 ```
 
-Resources should move to `reviewed` only after editorial review.
+`markets` usa códigos de país cuando aplica. Puede incluir `global` para recursos sin dependencia de mercado.
+
+Un recurso pasa a `reviewed` sólo después de revisión editorial.
