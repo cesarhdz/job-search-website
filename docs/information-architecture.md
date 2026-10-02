@@ -1,5 +1,27 @@
 # Arquitectura de información
 
+Este documento describe la estructura estable del sitio. No funciona como backlog ni roadmap.
+
+## Principio editorial
+
+El sitio debe cubrir la búsqueda de trabajo de punta a punta sin intentar hacer todo dentro del sitio.
+
+El eje es:
+
+> **Usa IA para avanzar más rápido, sin perder el control de tu búsqueda.**
+
+La IA puede buscar, analizar, escribir y preparar. El sitio ayuda a decidir qué hacer, qué conservar, qué revisar y qué herramientas usar.
+
+## Regla 4 × 4
+
+La navegación usa dos niveles principales:
+
+- máximo 4 bloques de primer nivel;
+- máximo 4 temas principales dentro de cada bloque;
+- las páginas pueden profundizar en contenido, pero no crear un tercer nivel de navegación principal.
+
+Si un tema necesita más de cuatro caminos, primero debe agruparse o priorizarse.
+
 ## Home
 
 La home no intenta explicar todo.
@@ -12,7 +34,7 @@ Presenta cuatro entradas:
 
 ```text
 Prepararte
-Encontrar
+Encontrar oportunidades
 Decidir y aplicar
 Avanzar y cerrar
 ```
@@ -57,9 +79,9 @@ Para manejar el proceso después de aplicar.
 - **Feedback y aprendizaje** — guardar señales útiles sin convertir cada comentario en verdad permanente.
 - **Oferta y cierre** — comparar, negociar, aceptar/rechazar y archivar la búsqueda.
 
-## Plantilla de cada página
+## Anatomía de una página
 
-Para mantener consistencia, cada página debería intentar responder en este orden:
+Las páginas deberían intentar responder, cuando aplique:
 
 1. **Qué necesitas lograr**
 2. **Lo mínimo que debes hacer**
@@ -68,13 +90,13 @@ Para mantener consistencia, cada página debería intentar responder en este ord
 5. **2–4 recursos recomendados**
 6. **Siguiente paso**
 
-El bloque "qué conviene que controles tú" conecta cada página con la promesa del sitio: usar IA sin perder el control.
+"Qué conviene que controles tú" conecta cada sección con la promesa del sitio.
 
 ## Navegación secundaria
 
 No usar categorías profundas.
 
-Cuando una página necesita contenido transversal, usar tags y enlaces contextuales en vez de crear un tercer nivel de menú.
+Cuando una página necesita contenido transversal, usar tags y enlaces contextuales en vez de crear otro nivel de menú.
 
 Ejemplos:
 
@@ -89,19 +111,27 @@ Ejemplos:
 
 Los tags sirven para búsqueda y filtros, no para multiplicar la navegación principal.
 
-## Contenido vs. datos
+## Tipos de página
 
-Algunas páginas son principalmente narrativas:
+### Guías
 
-- definir búsqueda;
+Contenido principalmente narrativo y accionable.
+
+Ejemplos:
+
+- definir la búsqueda;
 - evaluar fit;
 - preparar entrevistas.
 
-Otras son datasets curados con una introducción corta:
+### Directorios curados
+
+Introducción breve + datos estructurados + búsqueda/filtros cuando aporten valor.
+
+Ejemplos:
 
 - fuentes;
 - herramientas;
 - servicios;
 - recursos.
 
-En estas páginas sí tiene sentido agregar buscador y filtros.
+La estructura visual puede variar según el tipo de página sin cambiar la arquitectura principal.
