@@ -3,58 +3,37 @@ import Layout from '../../../layouts/Layout.astro';
 
 const topics = [
   {
-    order: '01',
     title: 'Define qué buscas',
-    description: 'Convierte una idea amplia de “buscar trabajo” en criterios concretos para decidir qué oportunidades sí perseguir.',
     href: 'definir-que-buscas',
   },
   {
-    order: '02',
     title: 'Construye tu perfil profesional',
-    description: 'Organiza experiencia, skills, evidencia y gaps para que la IA trabaje con hechos y no invente tu perfil.',
     href: 'perfil-profesional',
   },
   {
-    order: '03',
     title: 'Prepara tus materiales',
-    description: 'Crea una base reutilizable para CV, LinkedIn, portfolio y aplicaciones sin reescribir todo cada vez.',
     href: 'materiales',
   },
   {
-    order: '04',
     title: 'Configura tu sistema',
-    description: 'Decide dónde guardar contexto, cómo dar seguimiento y qué tareas conviene automatizar.',
     href: 'sistema',
   },
 ];
 ---
 
-<Layout title="Prepararte para buscar trabajo" description="Define tu búsqueda, construye tu perfil, prepara tus materiales y configura un sistema antes de empezar a aplicar.">
-  <section class="hero">
-    <p class="eyebrow">01 · Prepararte</p>
-    <h1>Construye una base clara antes de empezar a buscar.</h1>
-    <p class="lede">
-      No necesitas tener todo resuelto. Necesitas suficiente claridad para que cada búsqueda, evaluación y aplicación parta del mismo contexto.
-    </p>
-  </section>
-
-  <section class="section">
-    <div class="steps-grid">
-      {topics.map((topic) => (
-        <a class="step-card" href={`${import.meta.env.BASE_URL}guia/prepararte/${topic.href}/`}>
-          <p class="stage-number">{topic.order}</p>
-          <h2>{topic.title}</h2>
-          <p>{topic.description}</p>
-          <span class="step-link">Abrir guía →</span>
-        </a>
-      ))}
+<Layout title="Prepararte" description="Define tu búsqueda, construye tu perfil, prepara tus materiales y configura un sistema antes de empezar a aplicar.">
+  <section class="section guide-section section-overview">
+    <div>
+      <p class="stage-number">01</p>
+      <h1>Prepararte</h1>
+      <p class="lede">
+        Construye una base clara antes de empezar a buscar. No necesitas tener todo resuelto: necesitas suficiente claridad para que cada búsqueda, evaluación y aplicación parta del mismo contexto.
+      </p>
     </div>
-  </section>
-
-  <section class="section principle">
-    <p class="eyebrow">Siguiente paso</p>
-    <h2>Empieza por definir qué buscas.</h2>
-    <p class="lede">Es la referencia que usarás después para buscar oportunidades y decidir cuáles valen tu tiempo.</p>
-    <a class="button primary" href={`${import.meta.env.BASE_URL}guia/prepararte/definir-que-buscas/`}>Definir mi búsqueda →</a>
+    <ol class="topic-list">
+      {topics.map((topic) => (
+        <li><a href={`${import.meta.env.BASE_URL}guia/prepararte/${topic.href}/`}>{topic.title}</a></li>
+      ))}
+    </ol>
   </section>
 </Layout>

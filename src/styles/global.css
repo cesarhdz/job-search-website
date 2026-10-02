@@ -212,6 +212,24 @@ footer {
   color: #52525b;
 }
 
+.section-overview {
+  margin-top: 5rem;
+}
+
+.section-overview h1 {
+  font-size: clamp(2.75rem, 5vw, 4rem);
+}
+
+.section-overview .topic-list a {
+  display: block;
+  text-decoration: none;
+}
+
+.section-overview .topic-list a:hover,
+.section-overview .topic-list a:focus-visible {
+  text-decoration: underline;
+}
+
 .topic-list {
   margin: 0;
   padding-left: 1.5rem;
@@ -240,6 +258,10 @@ footer {
 
   .guide-section {
     gap: 1rem;
+  }
+
+  .section-overview {
+    margin-top: 2rem;
   }
 }
 
