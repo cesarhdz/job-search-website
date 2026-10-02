@@ -1,0 +1,40 @@
+---
+import '../styles/global.css';
+
+interface Props {
+  title?: string;
+  description?: string;
+}
+
+const {
+  title = 'Job Search Commons',
+  description = 'Tools, guidance, and shared knowledge for a better job search.',
+} = Astro.props;
+---
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width" />
+    <meta name="description" content={description} />
+    <meta name="generator" content={Astro.generator} />
+    <title>{title}</title>
+  </head>
+  <body>
+    <header class="site-header">
+      <a class="brand" href={import.meta.env.BASE_URL}>Job Search Commons</a>
+      <nav aria-label="Primary">
+        <a href={`${import.meta.env.BASE_URL}guide/`}>Guide</a>
+        <a href="https://github.com/cesarhdz/job-search-tools">Tools</a>
+        <a href="https://github.com/cesarhdz/job-search-website">GitHub</a>
+      </nav>
+    </header>
+    <main>
+      <slot />
+    </main>
+    <footer>
+      <p>Open tools and curated guidance for job seekers.</p>
+    </footer>
+  </body>
+</html>
