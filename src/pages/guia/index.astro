@@ -2,34 +2,10 @@
 import Layout from '../../layouts/Layout.astro';
 
 const sections = [
-  {
-    id: 'prepararte',
-    order: '01',
-    title: 'Prepararte',
-    description: 'Construye una base clara antes de empezar a buscar.',
-    topics: ['Define qué buscas', 'Construye tu perfil profesional', 'Prepara tus materiales', 'Configura tu sistema'],
-  },
-  {
-    id: 'encontrar-oportunidades',
-    order: '02',
-    title: 'Encontrar oportunidades',
-    description: 'Descubre vacantes sin tener que revisar todo Internet.',
-    topics: ['Fuentes', 'Búsquedas y palabras clave', 'Alertas', 'Networking y referrals'],
-  },
-  {
-    id: 'decidir-y-aplicar',
-    order: '03',
-    title: 'Decidir y aplicar',
-    description: 'Convierte muchas vacantes en pocas decisiones buenas.',
-    topics: ['Evalúa el fit', 'Evalúa la empresa', 'Prioriza y haz triage', 'Prepara la aplicación'],
-  },
-  {
-    id: 'avanzar-y-cerrar',
-    order: '04',
-    title: 'Avanzar y cerrar',
-    description: 'Maneja el proceso después de aplicar y lleva cada oportunidad hasta una decisión.',
-    topics: ['Tracking y follow-up', 'Entrevistas', 'Feedback y aprendizaje', 'Oferta y cierre'],
-  },
+  { id:'prepararte', order:'01', title:'Prepararte', description:'Construye una base clara antes de empezar a buscar.', topics:[{label:'Define qué buscas'},{label:'Construye tu perfil profesional'},{label:'Prepara tus materiales'},{label:'Configura tu sistema'}]},
+  { id:'encontrar-oportunidades', order:'02', title:'Encontrar oportunidades', description:'Descubre vacantes sin tener que revisar todo Internet.', topics:[{label:'Fuentes',href:`${import.meta.env.BASE_URL}fuentes/`},{label:'Búsquedas y palabras clave'},{label:'Alertas'},{label:'Networking y referrals'}]},
+  { id:'decidir-y-aplicar', order:'03', title:'Decidir y aplicar', description:'Convierte muchas vacantes en pocas decisiones buenas.', topics:[{label:'Evalúa el fit'},{label:'Evalúa la empresa'},{label:'Prioriza y haz triage'},{label:'Prepara la aplicación'}]},
+  { id:'avanzar-y-cerrar', order:'04', title:'Avanzar y cerrar', description:'Maneja el proceso después de aplicar y lleva cada oportunidad hasta una decisión.', topics:[{label:'Tracking y follow-up'},{label:'Entrevistas'},{label:'Feedback y aprendizaje'},{label:'Oferta y cierre'}]},
 ];
 ---
 
@@ -37,21 +13,14 @@ const sections = [
   <section class="hero">
     <p class="eyebrow">Guía de búsqueda</p>
     <h1>Cuatro pasos para avanzar en tu búsqueda.</h1>
-    <p class="lede">
-      Empieza donde estás. Cada paso reúne sólo la orientación, los recursos y las herramientas que necesitas para seguir avanzando.
-    </p>
+    <p class="lede">Empieza donde estás. Cada paso reúne sólo la orientación, los recursos y las herramientas que necesitas para seguir avanzando.</p>
   </section>
-
   <section class="section guide-sections">
     {sections.map((section) => (
       <article class="guide-section" id={section.id}>
-        <div>
-          <p class="stage-number">{section.order}</p>
-          <h2>{section.title}</h2>
-          <p>{section.description}</p>
-        </div>
+        <div><p class="stage-number">{section.order}</p><h2>{section.title}</h2><p>{section.description}</p></div>
         <ol class="topic-list">
-          {section.topics.map((topic) => <li>{topic}</li>)}
+          {section.topics.map((topic) => <li>{topic.href ? <a href={topic.href}>{topic.label} →</a> : topic.label}</li>)}
         </ol>
       </article>
     ))}
