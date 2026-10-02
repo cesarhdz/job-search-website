@@ -1,8 +1,8 @@
 ---
 order: 3
-title: Find opportunities
-description: Choose a small set of sources and searches that consistently surface relevant roles.
-goal: A repeatable discovery routine without an endless feed.
+title: Encuentra oportunidades
+description: Elige pocas fuentes y búsquedas que de forma consistente encuentren roles relevantes para ti.
+goal: Una rutina repetible sin convertir la búsqueda en un feed infinito.
 ---
 
-AI can generate queries, search the web and connected sources, and recommend additional places to look.
+La IA puede generar queries, buscar en la web y fuentes conectadas, y sugerir nuevos lugares donde buscar. La guía priorizará fuentes útiles para México y para trabajo remoto accesible desde México.
