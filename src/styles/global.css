@@ -242,3 +242,31 @@ footer {
     gap: 1rem;
   }
 }
+
+
+.guide-page {
+  max-width: 52rem;
+}
+
+.guide-page > section {
+  padding: 2.5rem 0;
+  border-top: 1px solid #e4e4e7;
+}
+
+.guide-page > section h2 {
+  margin-top: 0;
+  font-size: clamp(1.75rem, 4vw, 2.5rem);
+}
+
+.guide-page > section p,
+.guide-page > section li {
+  color: #3f3f46;
+}
+
+.guide-page > section li + li {
+  margin-top: .5rem;
+}
+
+.next-step {
+  margin-top: 2rem;
+}
