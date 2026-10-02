@@ -180,7 +180,7 @@ Puede enlazar de vuelta al explorador con el tipo preseleccionado.
 
 No se necesitan páginas individuales por tipo en V1.
 
-### /fuentes/<slug>/
+### `/fuentes/{slug}/`
 
 Página individual de una fuente.
 
