@@ -22,6 +22,8 @@ const resources = defineCollection({
     summary: z.string(),
     bestFor: z.array(z.string()).default([]),
     source: z.string(),
+    language: z.enum(['es', 'en']),
+    markets: z.array(z.string()).default(['MX']),
     commercialRelationship: z.enum(['none', 'affiliate', 'sponsored']).default('none'),
     status: z.enum(['candidate', 'reviewed']).default('candidate'),
   }),
