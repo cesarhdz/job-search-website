@@ -10,5 +10,9 @@
     "MD050": {
       "style": "asterisk"
     }
-  }
+  },
+  "ignores": [
+    "node_modules/**",
+    "dist/**"
+  ]
 }
