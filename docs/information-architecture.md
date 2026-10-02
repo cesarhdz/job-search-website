@@ -32,12 +32,10 @@ Su función principal es responder:
 
 Presenta cuatro entradas:
 
-```text
-Prepararte
-Encontrar oportunidades
-Decidir y aplicar
-Avanzar y cerrar
-```
+- Prepararte
+- Encontrar oportunidades
+- Decidir y aplicar
+- Avanzar y cerrar
 
 Cada entrada lleva a una página de sección con máximo cuatro siguientes pasos.
 
