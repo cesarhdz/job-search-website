@@ -1,33 +1,39 @@
-# Contributing
+# Contribuir
 
-Contributions are welcome, especially corrections, high-quality resources, and improvements to the job-search guide.
+Las contribuciones son bienvenidas, especialmente correcciones, recursos de alta calidad y mejoras a la guía.
 
-## What belongs here
+## Enfoque
 
-A contribution should solve a clear job-search problem and improve the curated set rather than make it larger for its own sake.
+El sitio empieza enfocado en México y en profesionales digitales y de tecnología que ya usan IA de manera práctica.
 
-For a resource, explain:
+Un recurso global puede entrar si es realmente útil para esa audiencia. No buscamos construir un directorio exhaustivo.
 
-- what it helps with;
-- who it is best for;
-- why it is better or meaningfully different from existing recommendations;
-- the original source URL;
-- whether there is any affiliate, sponsorship, or other commercial relationship.
+## Qué debe explicar una contribución
 
-## Editorial standard
+Para agregar un recurso, incluye:
 
-Prefer:
+- qué problema ayuda a resolver;
+- para quién resulta especialmente útil;
+- por qué mejora o complementa las recomendaciones actuales;
+- URL original;
+- idioma;
+- mercado o contexto donde aplica;
+- cualquier relación de afiliación, patrocinio o interés comercial.
 
-- primary and durable sources;
-- practical resources with a clear use case;
-- a few strong options per topic;
-- material that can be independently reviewed.
+## Criterio editorial
 
-Avoid:
+Preferimos:
 
-- generic SEO content;
-- duplicated recommendations;
-- undisclosed promotional content;
-- large uncurated link dumps.
+- fuentes primarias y durables;
+- recursos prácticos con un uso claro;
+- pocas opciones fuertes por tema;
+- material que pueda revisarse de forma independiente.
 
-All published changes require review. For now, final editorial approval belongs to the repository owner.
+Evitamos:
+
+- contenido SEO genérico;
+- recomendaciones duplicadas;
+- promoción no declarada;
+- listas enormes sin curación.
+
+Todo cambio publicado requiere revisión. Por ahora, la aprobación editorial final corresponde al owner del repositorio.
