@@ -8,150 +8,287 @@ status: draft
 
 Buscar trabajo suele convertirse en revisar demasiados sitios sin saber cuáles realmente aportan para un perfil, mercado o modalidad.
 
-La página debe ayudar a responder:
+La sección debe ayudar a responder:
 
 > **¿Dónde vale la pena buscar para mi caso?**
 
-No debe convertirse en una lista infinita de sitios.
+No debe convertirse en una lista infinita de links. Debe funcionar como un catálogo editorial que pueda crecer sin perder estructura ni criterio.
 
 ## Resultado esperado
 
-Una página pública en español que:
+Una sección pública y estática en español que:
 
-- explique los principales tipos de fuentes;
-- muestre una lista curada y estructurada;
-- permita encontrar rápidamente fuentes relevantes;
-- deje claro qué puede delegarse a la IA y qué conviene controlar personalmente.
+- permita buscar y explorar fuentes;
+- explique los distintos tipos de fuentes;
+- tenga una página propia para cada fuente con información más detallada;
+- distinga entre fuentes descubiertas y fuentes editorialmente validadas;
+- permita crecer mediante contenido estructurado en el repositorio, sin backend;
+- pueda exponer los datos estructurados para reutilizarlos fuera de la UI.
 
-## Alcance
+## Modelo de dominio
 
-### Cuatro grupos
+### Source
 
-1. **Bolsas generales**
-2. **ATS y páginas directas**
-3. **Remoto e internacional**
-4. **Reclutadores, comunidades y empresas objetivo**
+Una fuente es un lugar, servicio o canal que puede ayudar a descubrir oportunidades laborales.
 
-### Datos por fuente
+Ejemplos: LinkedIn Jobs, OCC, Greenhouse, Remote.co o una comunidad profesional.
 
-Como mínimo:
+Cada fuente es una entidad independiente y puede tener su propia página.
+
+Schema inicial:
 
 ```yaml
 name:
+slug:
 url:
+status: candidate | validated
+
 type:
-markets:
-roles:
-remote:
-language:
+markets: []
+profiles: []
+work_modes: []
+languages: []
+
+description:
+best_for:
+limitations: []
+
+logo:
+image:
+
 cost:
 account_required:
 alerts:
-notes:
-status:
+
 last_reviewed:
 ```
 
-No todos los campos necesitan mostrarse visualmente.
+Los campos se dividen conceptualmente en:
 
-### Búsqueda y filtros
+- **datos estructurados** — permiten buscar, filtrar y construir vistas;
+- **contenido editorial** — explica para qué sirve una fuente y cuáles son sus límites;
+- **metadata editorial** — permite saber si la fuente fue revisada y cuándo.
 
-V1 puede filtrar completamente en cliente sobre datos estáticos.
+El schema debe mantenerse pequeño. Se agregarán campos sólo cuando fuentes reales demuestren que hacen falta.
 
-Debe poder encontrar por:
+### SourceType
+
+Clasifica una fuente por la forma en que ayuda a descubrir oportunidades.
+
+Schema inicial:
+
+```yaml
+name:
+slug:
+description:
+```
+
+Tipos iniciales a validar durante la carga de contenido:
+
+- bolsas de trabajo;
+- ATS y páginas directas;
+- remoto e internacional;
+- recruiters/agencias;
+- comunidades;
+- empresas objetivo/directorios de empresas.
+
+La taxonomía puede cambiar cuando se pruebe contra fuentes reales.
+
+## Estados editoriales
+
+### candidate
+
+La fuente fue descubierta y parece potencialmente útil, pero todavía no fue revisada suficientemente para recomendarla o describirla públicamente.
+
+Puede vivir en el repositorio sin aparecer en la experiencia pública principal.
+
+### validated
+
+La fuente fue revisada editorialmente y tiene información suficiente y actual para publicarse.
+
+La transición de `candidate` a `validated` requiere verificar como mínimo:
+
+- que la fuente sigue activa;
+- qué tipo de oportunidades contiene;
+- para qué mercados/perfiles parece útil;
+- modalidad o restricciones relevantes;
+- URL oficial;
+- copy editorial;
+- fecha de revisión.
+
+No se necesita un workflow más complejo en V1.
+
+## Arquitectura de contenido
+
+Astro funciona como CMS estático.
+
+Las fuentes y tipos viven como contenido estructurado en el repositorio y se validan durante el build.
+
+Conceptualmente:
+
+```text
+content
+├── sources
+│   ├── linkedin.*
+│   ├── greenhouse.*
+│   └── ...
+└── source-types
+    ├── job-board.*
+    ├── ats.*
+    └── ...
+```
+
+El formato concreto puede ser Markdown/MDX con frontmatter, YAML o JSON según lo que resulte más natural al implementar las Content Collections.
+
+No se requiere backend ni base de datos.
+
+## Rutas
+
+### /fuentes/
+
+Home y explorador del catálogo.
+
+Debe incluir:
+
+- búsqueda;
+- resultados de fuentes validadas;
+- filtros útiles;
+- búsquedas curadas/presets;
+- explicación breve de los tipos de fuentes;
+- acceso a la página individual de cada fuente.
+
+La experiencia principal es **search-first**, no una lista dividida rígidamente en categorías.
+
+### /fuentes/tipos/
+
+Explica la taxonomía y cuándo sirve cada tipo de fuente.
+
+Puede enlazar de vuelta al explorador con el tipo preseleccionado.
+
+No se necesitan páginas individuales por tipo en V1.
+
+### /fuentes/<slug>/
+
+Página individual de una fuente.
+
+Debe poder mostrar:
+
+- nombre e identidad visual;
+- descripción breve;
+- para quién/qué sirve;
+- mercados y perfiles relevantes;
+- modalidad;
+- costo, cuenta o alertas cuando aplique;
+- limitaciones;
+- fecha de última revisión;
+- link al sitio oficial;
+- fuentes relacionadas cuando tenga sentido.
+
+Esta página es el lugar donde puede crecer el detalle sin saturar el explorador.
+
+Comentarios, experiencias comunitarias, ratings u otras señales pueden añadirse más adelante si existe una necesidad clara; no forman parte del dominio V1.
+
+## Búsqueda y filtros
+
+La búsqueda funciona completamente en cliente sobre contenido estático.
+
+Debe poder buscar como mínimo por:
 
 - nombre;
+- descripción;
 - tipo;
 - mercado;
-- rol/perfil;
-- remoto;
-- texto descriptivo.
+- perfil;
+- modalidad.
+
+Los filtros concretos se validarán con el primer dataset real antes de cerrar la UI.
+
+### Búsquedas curadas
+
+La home puede ofrecer presets útiles sobre el mismo catálogo, por ejemplo:
+
+- Product en México;
+- Tech remoto internacional;
+- Engineering;
+- Data.
+
+No son perfiles de usuario ni contenido duplicado. Son combinaciones predefinidas de búsqueda/filtros.
+
+## JSON público
+
+El build debe poder exponer una representación JSON del catálogo público, por ejemplo:
+
+```text
+/fuentes.json
+```
+
+Debe incluir sólo contenido publicable/validado y los campos necesarios para consumo externo.
+
+Esto permite reutilizar el catálogo desde la propia UI, herramientas futuras o AI hosts sin introducir una API o backend.
+
+La implementación puede decidir si la búsqueda consume directamente este JSON o datos incluidos durante el build.
+
+## Contenido e imágenes
+
+Cada fuente validada necesita una redacción breve y verificable.
+
+El contenido inicial debe priorizar:
+
+- qué es;
+- para qué sirve;
+- para quién puede ser útil;
+- limitaciones importantes.
+
+La investigación debe partir de fuentes oficiales cuando sea posible.
+
+Para identidad visual:
+
+- preferir logos/assets oficiales cuando su uso sea apropiado;
+- usar screenshots sólo cuando aporten información;
+- evitar imágenes decorativas o tomadas de terceros sin una razón clara;
+- registrar el origen del asset cuando sea necesario.
 
 ## Fuera de alcance
 
 - backend;
 - cuentas de usuario;
-- guardar favoritos;
-- recomendaciones personalizadas;
+- favoritos;
+- personalización por usuario;
 - crawler automático;
 - ranking algorítmico;
-- buscador global del sitio.
-
-## Experiencia / contenido
-
-### Introducción
-
-Explicar que una búsqueda sana mezcla distintos tipos de fuentes porque ninguna cubre todo el mercado.
-
-### 1. Bolsas generales
-
-Cobertura amplia y buen punto de partida.
-
-Candidatos iniciales a verificar:
-
-- LinkedIn Jobs
-- OCC
-- Computrabajo
-- Indeed
-
-### 2. ATS y páginas directas
-
-Vacantes publicadas directamente por empresas, incluyendo oportunidades que pueden aparecer mal o tarde en agregadores.
-
-Candidatos:
-
-- Greenhouse
-- Lever
-- Ashby
-- Workday
-
-Debe explicarse que normalmente un ATS no se navega como un job board: se descubre mediante empresas, buscadores o IA.
-
-### 3. Remoto e internacional
-
-Fuentes especializadas en oportunidades fuera del mercado local.
-
-La página debe enfatizar que "remoto" no significa automáticamente "contratable desde México".
-
-Candidatos iniciales:
-
-- Remote.co
-- FlexJobs
-- Wellfound
-- Real Work From Anywhere
-
-### 4. Reclutadores, comunidades y empresas objetivo
-
-Fuentes que dependen más del perfil:
-
-- agencias/recruiters especializados;
-- comunidades profesionales;
-- career pages;
-- lista personal de compañías objetivo.
-
-La recomendación es construir una lista pequeña y relevante.
+- comentarios;
+- ratings;
+- buscador global del sitio;
+- perfiles individuales de usuario;
+- páginas individuales por SourceType.
 
 ## Eje "sin perder el control"
 
-La página debe terminar con una recomendación operativa:
+La IA puede ayudar a descubrir fuentes y proponer candidatos, pero descubrir una fuente no equivale a recomendarla.
 
-- elegir pocas fuentes;
-- configurar alertas donde aporten;
-- revisar resultados en lotes;
-- conservar la lista de fuentes y criterios fuera de una conversación específica;
-- dejar de usar fuentes que repetidamente no aportan.
+El catálogo conserva explícitamente la diferencia entre:
 
-La IA puede buscar y proponer fuentes. La persona conserva la lista, los criterios y la decisión de cuáles seguir.
+```text
+candidate → validated
+```
+
+La persona mantiene el criterio editorial y puede revisar qué fuentes existen, por qué se recomiendan y cuándo fueron verificadas.
 
 ## Milestones
 
-- [ ] M1 — Verificar y definir el dataset inicial
-- [ ] M2 — Implementar página estática con los cuatro grupos
-- [ ] M3 — Agregar búsqueda y filtros en cliente
-- [ ] M4 — Revisar copy, links y metadata antes de publicar
+- [ ] M1 — Validar el schema con 5–10 fuentes reales
+- [ ] M2 — Crear Content Collections para Source y SourceType
+- [ ] M3 — Cargar y validar el dataset inicial
+- [ ] M4 — Implementar `/fuentes/`, `/fuentes/tipos/` y páginas individuales
+- [ ] M5 — Agregar búsqueda, filtros y búsquedas curadas
+- [ ] M6 — Exponer el catálogo público como JSON
+- [ ] M7 — Revisar copy, links, assets y metadata antes de publicar
 
 ## Preguntas abiertas
 
-- ¿Qué filtros aportan realmente en V1 además de tipo, mercado y remoto?
-- ¿Conviene mostrar costo/cuenta/alertas como filtros o sólo como metadata?
-- ¿Cuántas fuentes son suficientes para lanzar sin convertirlo en directorio?
+- ¿Qué campos del schema sobreviven después de probar 5–10 fuentes reales?
+- ¿Qué taxonomía de SourceType describe mejor las fuentes reales sin crear categorías ambiguas?
+- ¿Qué filtros aportan realmente en V1?
+- ¿Qué búsquedas curadas son útiles para el lanzamiento?
+- ¿Qué assets visuales podemos usar consistentemente entre fuentes?
+- ¿Cuántas fuentes validadas son suficientes para lanzar?
