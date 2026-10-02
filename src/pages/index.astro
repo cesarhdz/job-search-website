@@ -1,0 +1,35 @@
+---
+import Layout from '../layouts/Layout.astro';
+---
+
+<Layout>
+  <section class="hero">
+    <p class="eyebrow">A practical job-search toolkit</p>
+    <h1>Search better. Keep what matters.</h1>
+    <p class="lede">
+      Curated guidance, open tools, and portable memory designed to work with the AI assistant you already use.
+    </p>
+    <div class="actions">
+      <a class="button primary" href={`${import.meta.env.BASE_URL}guide/`}>Start with the guide</a>
+      <a class="button" href="https://github.com/cesarhdz/job-search-tools">Explore the tools</a>
+    </div>
+  </section>
+
+  <section class="section">
+    <p class="eyebrow">The idea</p>
+    <div class="grid">
+      <article class="card">
+        <h2>Guidance</h2>
+        <p>A small, curated set of resources for each stage of a job search instead of another endless content library.</p>
+      </article>
+      <article class="card">
+        <h2>AI</h2>
+        <p>Let your AI search, analyze, write, and coach. We do not rebuild capabilities it already handles well.</p>
+      </article>
+      <article class="card">
+        <h2>Tools</h2>
+        <p>Use software for memory, triage, tracking, notes, and the state that gets lost inside long conversations.</p>
+      </article>
+    </div>
+  </section>
+</Layout>
