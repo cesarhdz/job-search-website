@@ -1,20 +1,24 @@
 # PRDs
 
-Cada sección o capacidad relevante del sitio se trabaja como un pequeño producto.
+Un PRD convierte una idea del roadmap en trabajo suficientemente definido para diseñar o implementar.
 
-El PRD define el problema y el resultado esperado. El roadmap sólo enlaza al PRD y muestra su estado.
+El roadmap puede contener ideas simples durante mucho tiempo. **No todo lo que aparece en el roadmap necesita un PRD.**
 
 ## Cuándo crear un PRD
 
-Crear uno cuando el cambio introduce:
+Crear uno cuando ya queremos avanzar sobre una idea y necesitamos acordar alguna de estas cosas:
 
-- una nueva sección;
-- un nuevo tipo de contenido;
+- el problema concreto;
+- el resultado esperado;
+- el alcance y lo que queda fuera;
+- una nueva sección o tipo de contenido;
 - una interacción relevante, como búsqueda o filtros;
-- una nueva contribución/workflow editorial;
-- una capacidad que necesita varias decisiones antes de implementarse.
+- varias decisiones antes de implementar;
+- milestones que conviene revisar por separado.
 
-Correcciones pequeñas de copy o contenido no necesitan PRD.
+Una idea todavía exploratoria puede seguir siendo una o dos líneas en el roadmap.
+
+Correcciones pequeñas de copy o contenido tampoco necesitan PRD.
 
 ## Estructura
 
@@ -44,11 +48,13 @@ Status: draft | accepted | building | shipped
 ## Preguntas abiertas
 ```
 
+No todas las secciones tienen que ser extensas. El PRD debe ser tan pequeño como permita tomar las decisiones necesarias.
+
 ## Trabajo incremental
 
 Los cambios deben ser pequeños, aditivos y revisables.
 
-Un PRD puede mezclarse solo como propuesta. Cuando el trabajo crece, separar:
+Un flujo grande puede separar:
 
 1. PRD;
 2. diseño/spec cuando haga falta;
