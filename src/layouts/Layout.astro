@@ -7,13 +7,13 @@ interface Props {
 }
 
 const {
-  title = 'Job Search Commons',
-  description = 'Tools, guidance, and shared knowledge for a better job search.',
+  title = 'Buscar trabajo con IA',
+  description = 'Guía, herramientas y recursos curados para buscar trabajo desde México usando la IA que ya usas.',
 } = Astro.props;
 ---
 
 <!doctype html>
-<html lang="en">
+<html lang="es-MX">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width" />
@@ -23,10 +23,10 @@ const {
   </head>
   <body>
     <header class="site-header">
-      <a class="brand" href={import.meta.env.BASE_URL}>Job Search Commons</a>
-      <nav aria-label="Primary">
-        <a href={`${import.meta.env.BASE_URL}guide/`}>Guide</a>
-        <a href="https://github.com/cesarhdz/job-search-tools">Tools</a>
+      <a class="brand" href={import.meta.env.BASE_URL}>Buscar trabajo</a>
+      <nav aria-label="Principal">
+        <a href={`${import.meta.env.BASE_URL}guia/`}>Guía</a>
+        <a href="https://github.com/cesarhdz/job-search-tools">Herramientas</a>
         <a href="https://github.com/cesarhdz/job-search-website">GitHub</a>
       </nav>
     </header>
@@ -34,7 +34,7 @@ const {
       <slot />
     </main>
     <footer>
-      <p>Open tools and curated guidance for job seekers.</p>
+      <p>Guía y herramientas abiertas para buscar trabajo con IA.</p>
     </footer>
   </body>
 </html>
