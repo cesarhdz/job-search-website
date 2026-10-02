@@ -1,56 +1,65 @@
-# Website architecture
+# Arquitectura del sitio
 
-## Purpose
+## Propósito
 
-The website is the public entry point for the project.
+El sitio es la entrada pública al proyecto.
 
-It has two responsibilities:
+Tiene dos responsabilidades:
 
-1. explain the toolkit and how to use it;
-2. maintain a curated knowledge base for the job-search journey.
+1. orientar a una persona durante una búsqueda de trabajo;
+2. mantener una base de conocimiento pequeña y curada.
 
-It is intentionally separate from the private workspace application and hosted platform.
+El producto open source y la plataforma hosted viven en repositorios separados.
+
+## Alcance inicial
+
+- español como idioma del sitio;
+- México como mercado principal;
+- perfiles profesionales digitales y de tecnología;
+- usuarios que ya usan IA de manera práctica, más allá del chat casual.
+
+El alcance puede ampliarse después sin convertir el sitio en un catálogo global desde el primer día.
 
 ## Stack
 
 - Astro + TypeScript
-- static output
-- Astro content collections for typed editorial content
-- plain CSS initially
-- GitHub Pages for hosting
-- GitHub pull requests for editorial contributions
+- salida estática
+- Astro Content Collections para contenido tipado
+- CSS simple inicialmente
+- GitHub Pages
+- contribuciones editoriales mediante pull requests
 
-No database, CMS, server runtime, authentication, or analytics are required for V1.
+V1 no necesita base de datos, CMS, runtime de servidor, autenticación ni analytics.
 
-## Content model
+## Modelo de contenido
 
-### Stages
+### Etapas
 
-Stable sections of the job-search journey. These define site information architecture.
+Secciones estables del proceso de búsqueda. Definen la arquitectura de información.
 
-### Resources
+### Recursos
 
-External articles, videos, tools, services, and communities that have been reviewed for a specific stage.
+Artículos, videos, herramientas, servicios y comunidades externos, evaluados para una etapa y audiencia concreta.
 
-Resources have explicit editorial status and commercial-relationship metadata.
+Cada recurso registra idioma, mercado relevante, estado editorial y relación comercial.
 
-### Product guides
+### Guías del producto
 
-Product-specific instructions can be added later for tasks such as connecting an AI host, importing a workspace, or using the tracking tools.
+Más adelante se pueden agregar instrucciones específicas para conectar un AI host, importar una memoria o usar tracking.
 
-## Publishing model
+## Publicación
 
 ```text
-contributor
+contribuidor
     |
     v
 pull request
     |
     v
-schema validation + build
+validación de schema + build
     |
     v
-editorial review
+revisión editorial
     |
     v
 main
@@ -59,16 +68,14 @@ main
 GitHub Pages
 ```
 
-For now, the repository owner is the required code/content owner.
+Por ahora, el owner del repositorio mantiene la aprobación editorial final.
 
-## Future, only when needed
+## Después, sólo si hace falta
 
-- custom domain
-- search
+- dominio propio
+- buscador
 - RSS
-- link-health automation
-- lightweight privacy-preserving analytics
-- community contribution forms that create pull requests
-- multilingual content
-
-These should not block the first public version.
+- revisión automática de links
+- analytics mínimos y respetuosos de privacidad
+- formularios que creen PRs para contribuciones
+- soporte explícito para otros mercados o idiomas
