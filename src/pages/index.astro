@@ -4,32 +4,42 @@ import Layout from '../layouts/Layout.astro';
 
 <Layout>
   <section class="hero">
-    <p class="eyebrow">A practical job-search toolkit</p>
-    <h1>Search better. Keep what matters.</h1>
+    <p class="eyebrow">México primero · IA como herramienta de trabajo</p>
+    <h1>Busca trabajo con IA, sin perder el control.</h1>
     <p class="lede">
-      Curated guidance, open tools, and portable memory designed to work with the AI assistant you already use.
+      Una guía curada y herramientas abiertas para organizar mejor tu búsqueda, mantener contexto entre sesiones y usar la IA donde realmente ayuda.
     </p>
     <div class="actions">
-      <a class="button primary" href={`${import.meta.env.BASE_URL}guide/`}>Start with the guide</a>
-      <a class="button" href="https://github.com/cesarhdz/job-search-tools">Explore the tools</a>
+      <a class="button primary" href={`${import.meta.env.BASE_URL}guia/`}>Empezar por la guía</a>
+      <a class="button" href="https://github.com/cesarhdz/job-search-tools">Ver las herramientas</a>
     </div>
   </section>
 
   <section class="section">
-    <p class="eyebrow">The idea</p>
+    <p class="eyebrow">Cómo lo pensamos</p>
     <div class="grid">
       <article class="card">
-        <h2>Guidance</h2>
-        <p>A small, curated set of resources for each stage of a job search instead of another endless content library.</p>
+        <h2>Orientación</h2>
+        <p>Pocos recursos bien escogidos para cada etapa de la búsqueda, con contexto para saber cuándo vale la pena usarlos.</p>
       </article>
       <article class="card">
-        <h2>AI</h2>
-        <p>Let your AI search, analyze, write, and coach. We do not rebuild capabilities it already handles well.</p>
+        <h2>IA</h2>
+        <p>La IA busca, analiza, compara, escribe y ayuda a prepararte. No queremos reconstruir lo que ya hace bien.</p>
       </article>
       <article class="card">
-        <h2>Tools</h2>
-        <p>Use software for memory, triage, tracking, notes, and the state that gets lost inside long conversations.</p>
+        <h2>Software</h2>
+        <p>Memoria, triage, tracking y notas para lo que se vuelve difícil de manejar dentro de una conversación larga.</p>
       </article>
+    </div>
+  </section>
+
+  <section class="section">
+    <p class="eyebrow">Para quién empieza</p>
+    <div class="card">
+      <h2>Profesionales en México que ya usan IA de forma práctica</h2>
+      <p>
+        El punto de partida son perfiles digitales y de tecnología que ya usan herramientas de IA para trabajar y quieren aplicarlas a una búsqueda laboral más estructurada. El contenido puede ampliarse después, pero no intentaremos cubrir todo desde el inicio.
+      </p>
     </div>
   </section>
 </Layout>
