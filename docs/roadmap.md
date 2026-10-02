@@ -1,62 +1,70 @@
 # Roadmap
 
-Este archivo es el índice operativo del sitio.
+Este archivo es el índice operativo y el lugar para capturar ideas sobre la evolución del sitio.
 
-La arquitectura de información vive en [information-architecture.md](information-architecture.md). Cada sección o capacidad relevante se desarrolla mediante un PRD en [prds/](prds/).
+La arquitectura de información estable vive en [information-architecture.md](information-architecture.md). Los PRDs viven en [prds/](prds/) y aparecen sólo cuando una idea está suficientemente clara para trabajarla.
 
-## Estados
+## En curso
 
-- `planned` — identificado, todavía sin trabajo activo;
-- `prd` — PRD en definición o revisión;
-- `building` — contenido o implementación en curso;
-- `published` — disponible en el sitio;
-- `iterate` — publicado, con mejoras concretas pendientes.
+### Fuentes
 
-## Ahora
+Página curada para explicar dónde buscar trabajo y permitir explorar fuentes por tipo, mercado y otras señales útiles.
 
-| Área | Entregable | Estado | PRD |
-| --- | --- | --- | --- |
-| Encontrar oportunidades | Fuentes | prd | [PRD 0001](prds/0001-fuentes.md) |
-| Home | Navegación 4 × 4 | planned | — |
-| Prepararte | Define qué buscas | planned | — |
-| Prepararte | Prepara tus materiales | planned | — |
+- Estado: `prd`
+- [PRD 0001 — Fuentes](prds/0001-fuentes.md)
 
-## Después
+## Próximo
 
-| Área | Entregable | Estado | PRD |
-| --- | --- | --- | --- |
-| Encontrar oportunidades | Búsquedas y palabras clave | planned | — |
-| Encontrar oportunidades | Alertas | planned | — |
-| Encontrar oportunidades | Networking y referrals | planned | — |
-| Decidir y aplicar | Evalúa el fit | planned | — |
-| Decidir y aplicar | Evalúa la empresa | planned | — |
-| Decidir y aplicar | Prioriza y haz triage | planned | — |
-| Decidir y aplicar | Prepara la aplicación | planned | — |
-| Avanzar y cerrar | Tracking y follow-up | planned | — |
-| Avanzar y cerrar | Entrevistas | planned | — |
-| Avanzar y cerrar | Feedback y aprendizaje | planned | — |
-| Avanzar y cerrar | Oferta y cierre | planned | — |
+Estas ideas parecen suficientemente cercanas como para considerarlas después de Fuentes, pero todavía no necesitan PRD.
 
-## Más adelante
+- **Home 4 × 4** — reemplazar la navegación plana actual por las cuatro etapas principales de la búsqueda.
+- **Define qué buscas** — ayudar a establecer rol, ubicación, compensación, modalidad y restricciones antes de empezar a buscar.
+- **Prepara tus materiales** — guía base para CV, LinkedIn, portafolio y evidencia profesional.
+- **Búsquedas y palabras clave** — enseñar a ampliar títulos, sinónimos y queries sin convertir la búsqueda en ruido.
 
-Estas capacidades sólo entran al roadmap activo cuando exista una necesidad concreta y su propio PRD:
+## Ideas
 
-- buscador global;
-- filtros reutilizables;
-- contribuciones editoriales simplificadas;
-- señales comunitarias;
-- guías de integración con AI hosts;
-- contenido específico por perfil;
-- monetización claramente separada de la recomendación editorial.
+Ideas que vale la pena conservar, sin asumir todavía que se construirán.
 
-## Regla de actualización
+### Encontrar oportunidades
 
-El roadmap cambia con frecuencia.
+- Alertas y automatización ligera.
+- Networking y referrals.
+- Buscador global del sitio.
+- Filtros reutilizables entre directorios.
 
-Cuando un trabajo comienza:
+### Decidir y aplicar
 
-1. crear o enlazar su PRD;
-2. mover su estado a `prd` o `building`;
-3. mantener milestones y checklist dentro del PRD, no aquí;
-4. al publicarse, cambiar el estado a `published`;
-5. registrar mejoras posteriores como un nuevo PRD o como `iterate` si son pequeñas y ya están claramente definidas.
+- Evalúa el fit.
+- Evalúa la empresa.
+- Priorización y triage.
+- Preparación de aplicaciones y formularios.
+
+### Avanzar y cerrar
+
+- Tracking y follow-up.
+- Preparación de entrevistas.
+- Feedback y aprendizaje.
+- Oferta, negociación y cierre.
+
+### Comunidad y producto
+
+- Contribuciones editoriales simplificadas.
+- Señales comunitarias sobre recursos.
+- Guías para conectar distintos AI hosts.
+- Contenido específico por perfil cuando exista suficiente evidencia.
+- Monetización claramente separada de la recomendación editorial.
+
+## De idea a trabajo
+
+Una idea puede vivir aquí durante mucho tiempo sin PRD.
+
+Cuando decidimos trabajarla:
+
+1. crear un PRD si necesita definir problema, alcance, contenido o interacción;
+2. reemplazar o complementar la idea con el enlace al PRD;
+3. mantener milestones y checklist dentro del PRD;
+4. moverla a `En curso` cuando comienza el trabajo;
+5. al publicarse, quitarla del trabajo activo o registrar una iteración concreta si sigue habiendo trabajo.
+
+El roadmap es deliberadamente ligero y cambia con frecuencia. No es una especificación.
