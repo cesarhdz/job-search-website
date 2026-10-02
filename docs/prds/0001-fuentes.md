@@ -294,8 +294,8 @@ La persona mantiene el criterio editorial y puede revisar qué fuentes existen, 
 - [x] M2 — Crear Content Collection inicial para Source
 - [ ] M2b — Definir SourceType como contenido estructurado
 - [ ] M3 — Cargar y validar el dataset inicial
-- [ ] M4 — Implementar `/fuentes/`, `/fuentes/tipos/` y páginas individuales
-- [ ] M5 — Agregar búsqueda, filtros y búsquedas curadas
+- [x] M4 — Implementar `/fuentes/`, `/fuentes/tipos/` y páginas individuales
+- [ ] M5 — Agregar filtros y búsquedas curadas
 - [ ] M6 — Exponer el catálogo público como JSON
 - [ ] M7 — Revisar copy, links, assets y metadata antes de publicar
 
