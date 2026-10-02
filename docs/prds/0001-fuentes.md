@@ -1,6 +1,6 @@
-----
+---
 status: draft
-----
+---
 
 # PRD 0001 — Fuentes
 
