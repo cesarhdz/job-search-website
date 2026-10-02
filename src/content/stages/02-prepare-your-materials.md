@@ -1,8 +1,8 @@
 ---
 order: 2
-title: Prepare your materials
-description: Get a strong baseline resume, profile, and portfolio before tailoring anything to individual opportunities.
-goal: Reusable source material that can evolve during the search.
+title: Prepara tus materiales
+description: Construye una buena base de CV, perfil y portafolio antes de personalizar cada aplicación.
+goal: Material fuente reutilizable que pueda mejorar durante la búsqueda.
 ---
 
-Use existing AI and specialized tools where they are already good enough. Native tooling can come later if a real gap emerges.
+Usa IA y herramientas especializadas cuando ya resuelvan bien el problema. Sólo construiremos herramientas propias cuando exista una fricción clara.
