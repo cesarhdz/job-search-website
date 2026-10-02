@@ -1,0 +1,14 @@
+{
+  "config": {
+    "default": true,
+    "MD004": {
+      "style": "dash"
+    },
+    "MD049": {
+      "style": "asterisk"
+    },
+    "MD050": {
+      "style": "asterisk"
+    }
+  }
+}
