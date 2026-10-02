@@ -1,87 +1,62 @@
-# Roadmap de contenido
+# Roadmap
 
-## Principio
+Este archivo es el índice operativo del sitio.
 
-El sitio debe cubrir la búsqueda de trabajo de punta a punta sin intentar hacer todo dentro del sitio.
+La arquitectura de información vive en [information-architecture.md](information-architecture.md). Cada sección o capacidad relevante se desarrolla mediante un PRD en [prds/](prds/).
 
-El eje editorial es:
+## Estados
 
-> **Usa IA para avanzar más rápido, sin perder el control de tu búsqueda.**
+- `planned` — identificado, todavía sin trabajo activo;
+- `prd` — PRD en definición o revisión;
+- `building` — contenido o implementación en curso;
+- `published` — disponible en el sitio;
+- `iterate` — publicado, con mejoras concretas pendientes.
 
-La IA puede buscar, analizar, escribir y preparar. El sitio debe ayudar a decidir qué hacer, qué guardar, qué revisar y qué herramientas usar.
+## Ahora
 
-## Regla de complejidad
+| Área | Entregable | Estado | PRD |
+| --- | --- | --- | --- |
+| Encontrar oportunidades | Fuentes | prd | [PRD 0001](prds/0001-fuentes.md) |
+| Home | Navegación 4 × 4 | planned | — |
+| Prepararte | Define qué buscas | planned | — |
+| Prepararte | Prepara tus materiales | planned | — |
 
-La navegación usa una jerarquía 4 × 4:
+## Después
 
-- máximo 4 bloques de primer nivel;
-- máximo 4 temas principales dentro de cada bloque;
-- una página puede profundizar con contenido, pero no añadir otra navegación compleja.
+| Área | Entregable | Estado | PRD |
+| --- | --- | --- | --- |
+| Encontrar oportunidades | Búsquedas y palabras clave | planned | — |
+| Encontrar oportunidades | Alertas | planned | — |
+| Encontrar oportunidades | Networking y referrals | planned | — |
+| Decidir y aplicar | Evalúa el fit | planned | — |
+| Decidir y aplicar | Evalúa la empresa | planned | — |
+| Decidir y aplicar | Prioriza y haz triage | planned | — |
+| Decidir y aplicar | Prepara la aplicación | planned | — |
+| Avanzar y cerrar | Tracking y follow-up | planned | — |
+| Avanzar y cerrar | Entrevistas | planned | — |
+| Avanzar y cerrar | Feedback y aprendizaje | planned | — |
+| Avanzar y cerrar | Oferta y cierre | planned | — |
 
-Si un tema necesita más de cuatro caminos, primero debe agruparse o priorizarse.
+## Más adelante
 
-## Fase 1 — Estructura y contenido esencial
-
-Objetivo: que alguien pueda recorrer el proceso completo y encontrar una respuesta útil en cada etapa.
-
-### 1. Prepararte
-
-1. Define qué buscas
-2. Construye tu perfil profesional
-3. Prepara tus materiales
-4. Configura tu sistema de búsqueda
-
-### 2. Encontrar oportunidades
-
-1. Fuentes
-2. Búsquedas y palabras clave
-3. Alertas y automatización ligera
-4. Networking y referrals
-
-### 3. Decidir y aplicar
-
-1. Evalúa el fit
-2. Evalúa la empresa
-3. Prioriza y haz triage
-4. Prepara y envía la aplicación
-
-### 4. Avanzar y cerrar
-
-1. Tracking y follow-up
-2. Preparación de entrevistas
-3. Feedback y aprendizaje
-4. Oferta, negociación y cierre
-
-## Fase 2 — Mejorar la utilidad
-
-Después de tener contenido suficiente para las 16 páginas base:
+Estas capacidades sólo entran al roadmap activo cuando exista una necesidad concreta y su propio PRD:
 
 - buscador global;
-- filtros en páginas con datasets, especialmente Fuentes;
-- enlaces entre páginas relacionadas;
-- recursos curados con estado editorial;
-- contenido específico por perfil cuando exista suficiente evidencia de uso;
-- guías cortas para conectar las herramientas open source con distintos AI hosts.
+- filtros reutilizables;
+- contribuciones editoriales simplificadas;
+- señales comunitarias;
+- guías de integración con AI hosts;
+- contenido específico por perfil;
+- monetización claramente separada de la recomendación editorial.
 
-## Fase 3 — Comunidad
+## Regla de actualización
 
-Sólo después de que el contenido editorial tenga una estructura estable:
+El roadmap cambia con frecuencia.
 
-- contribuciones vía PR más sencillas;
-- formularios que generen propuestas estructuradas;
-- señales comunitarias sobre recursos y fuentes;
-- experiencias de procesos de contratación con criterios claros de privacidad;
-- especialistas/servicios externos claramente identificados.
+Cuando un trabajo comienza:
 
-## Fase 4 — Monetización opcional
-
-No debe cambiar el criterio editorial.
-
-Posibles líneas:
-
-- recursos patrocinados claramente etiquetados;
-- afiliados;
-- marketplace de servicios especializados;
-- hosting gestionado de las herramientas open source.
-
-La recomendación editorial y el contenido comercial deben permanecer diferenciados.
+1. crear o enlazar su PRD;
+2. mover su estado a `prd` o `building`;
+3. mantener milestones y checklist dentro del PRD, no aquí;
+4. al publicarse, cambiar el estado a `published`;
+5. registrar mejoras posteriores como un nuevo PRD o como `iterate` si son pequeñas y ya están claramente definidas.
