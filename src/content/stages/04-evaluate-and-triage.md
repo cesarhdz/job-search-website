@@ -1,8 +1,8 @@
 ---
 order: 4
-title: Evaluate and triage
-description: Understand fit, gaps, constraints, and what deserves your attention before investing in an application.
-goal: A short queue of opportunities worth acting on.
+title: Evalúa y haz triage
+description: Entiende fit, gaps, restricciones y qué merece tu atención antes de invertir tiempo en una aplicación.
+goal: Una cola corta de oportunidades en las que vale la pena actuar.
 ---
 
-This is where structured memory and a focused review interface can add more value than a long conversation.
+Aquí la memoria estructurada y una interfaz enfocada aportan más que una conversación larga: qué ya viste, qué descartaste y por qué.
