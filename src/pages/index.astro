@@ -42,7 +42,7 @@ const steps = [
     <p class="eyebrow">¿En qué parte de tu búsqueda estás?</p>
     <div class="steps-grid">
       {steps.map((step) => (
-        <a class="step-card" href={`${import.meta.env.BASE_URL}guia/#${step.href}`}>
+        <a class="step-card" href={step.href === 'prepararte' ? `${import.meta.env.BASE_URL}guia/prepararte/` : `${import.meta.env.BASE_URL}guia/#${step.href}`}>
           <p class="stage-number">{step.order}</p>
           <h2>{step.title}</h2>
           <p>{step.description}</p>
