@@ -1,6 +1,8 @@
-# PRD 0001 — Fuentes
+```
+status: draft
+```
 
-Status: draft
+# PRD 0001 — Fuentes
 
 ## Problema
 
