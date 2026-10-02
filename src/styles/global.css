@@ -141,3 +141,104 @@ footer {
     padding-top: 4rem;
   }
 }
+
+
+.steps-section {
+  padding-top: 0;
+}
+
+.steps-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1rem;
+  margin-top: 1rem;
+}
+
+.step-card {
+  display: flex;
+  min-height: 18rem;
+  flex-direction: column;
+  padding: 1.5rem;
+  background: white;
+  border: 1px solid #e4e4e7;
+  border-radius: .8rem;
+  text-decoration: none;
+  transition: transform 120ms ease, border-color 120ms ease;
+}
+
+.step-card:hover {
+  transform: translateY(-2px);
+  border-color: #a1a1aa;
+}
+
+.step-card h2 {
+  margin: .5rem 0;
+}
+
+.step-card > p:not(.stage-number) {
+  color: #52525b;
+}
+
+.step-link {
+  margin-top: auto;
+  padding-top: 1.5rem;
+  font-weight: 600;
+}
+
+.principle {
+  max-width: 52rem;
+}
+
+.guide-sections {
+  display: grid;
+  gap: 1rem;
+}
+
+.guide-section {
+  scroll-margin-top: 2rem;
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(16rem, 1fr);
+  gap: 3rem;
+  padding: 2rem 0;
+  border-top: 1px solid #e4e4e7;
+}
+
+.guide-section h2 {
+  margin: .5rem 0;
+  font-size: clamp(2rem, 5vw, 3rem);
+}
+
+.guide-section > div > p:last-child {
+  color: #52525b;
+}
+
+.topic-list {
+  margin: 0;
+  padding-left: 1.5rem;
+}
+
+.topic-list li {
+  padding: .55rem 0;
+  border-bottom: 1px solid #e4e4e7;
+}
+
+@media (max-width: 56rem) {
+  .steps-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 40rem) {
+  .steps-grid,
+  .guide-section {
+    grid-template-columns: 1fr;
+  }
+
+  .step-card {
+    min-height: 14rem;
+  }
+
+  .guide-section {
+    gap: 1rem;
+  }
+}
