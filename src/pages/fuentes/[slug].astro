@@ -4,32 +4,44 @@ import Layout from '../../layouts/Layout.astro';
 
 export async function getStaticPaths() {
   const sources = await getCollection('sources');
-  return sources.filter((source) => source.data.published).map((source) => ({ params: { slug: source.id }, props: { source } }));
+  return sources.map((source) => ({ params: { slug: source.id }, props: { source } }));
 }
 const { source } = Astro.props;
 const data = source.data;
 const typeLabels = { company:'Empresa', agency:'Agencia / recruiter', ats:'ATS', aggregator:'Bolsa / agregador', email:'Email', web:'Web' };
+const accessLabels = { open:'Más directo', limited:'Limitado', restricted:'Requiere cuidado' };
 ---
 
-<Layout title={`${data.name} — Fuentes`} description={data.description ?? `Información sobre ${data.name} como fuente para encontrar oportunidades.`}>
+<Layout title={`${data.name} — Fuentes`} description={data.description ?? `Cómo usar ${data.name} para encontrar oportunidades.`}>
   <section class="hero compact-hero">
     <p class="eyebrow">{typeLabels[data.type]} · {data.status === 'reviewed' ? 'Revisada' : 'Candidata'}</p>
     <h1>{data.name}</h1>
-    <p class="lede">{data.description ?? 'Esta fuente forma parte del inventario inicial y todavía está pendiente de revisión editorial.'}</p>
-    <div class="actions">
-      {data.url && <a class="button primary" href={data.url} rel="noreferrer">Abrir sitio oficial ↗</a>}
-      <a class="button" href={`${import.meta.env.BASE_URL}fuentes/`}>Volver a fuentes</a>
-    </div>
+    <p class="lede">{data.description ?? 'Esta fuente todavía está pendiente de revisión editorial.'}</p>
+    <div class="actions">{data.url && <a class="button primary" href={data.url} rel="noreferrer">Abrir sitio oficial ↗</a>}<a class="button" href={`${import.meta.env.BASE_URL}fuentes/`}>Volver a fuentes</a></div>
   </section>
+
   <section class="section source-detail">
     <dl>
-      <div><dt>Tipo</dt><dd>{typeLabels[data.type]}</dd></div>
-      <div><dt>Estado editorial</dt><dd>{data.status === 'reviewed' ? 'Revisada' : 'Pendiente de revisión'}</dd></div>
       {data.bestFor && <div><dt>Mejor para</dt><dd>{data.bestFor}</dd></div>}
+      {data.access && <div><dt>Acceso con IA</dt><dd>{accessLabels[data.access]}</dd></div>}
       {data.alerts !== undefined && <div><dt>Alertas</dt><dd>{data.alerts ? 'Sí' : 'No'}</dd></div>}
-      {data.accountRequired !== undefined && <div><dt>Cuenta requerida</dt><dd>{data.accountRequired ? 'Sí' : 'No'}</dd></div>}
-      {data.cost && <div><dt>Costo</dt><dd>{data.cost}</dd></div>}
+      {data.accountRequired !== undefined && <div><dt>Cuenta</dt><dd>{data.accountRequired ? 'Requerida o recomendable' : 'No requerida'}</dd></div>}
     </dl>
-    {data.limitations.length > 0 && <div class="detail-block"><h2>Limitaciones</h2><ul>{data.limitations.map((item) => <li>{item}</li>)}</ul></div>}
+
+    {data.searchInstructions && <div class="detail-block"><h2>Cómo buscar</h2><p>{data.searchInstructions}</p></div>}
+    {data.aiInstructions && <div class="detail-block"><h2>Cómo trabajar con IA</h2><p>{data.aiInstructions}</p></div>}
+    {data.limitations.length > 0 && <div class="detail-block"><h2>Antes de automatizar</h2><ul>{data.limitations.map((item) => <li>{item}</li>)}</ul></div>}
+    {data.prompt && <div class="detail-block source-prompt-detail"><h2>Prompt para esta fuente</h2><pre id="detail-prompt">{data.prompt}</pre><button id="copy-detail-prompt" class="button primary" type="button">Copiar prompt</button><span id="detail-copy-status" class="copy-status" aria-live="polite"></span></div>}
   </section>
+
+  <script>
+    const button = document.querySelector('#copy-detail-prompt');
+    const prompt = document.querySelector('#detail-prompt');
+    const status = document.querySelector('#detail-copy-status');
+    button?.addEventListener('click', async () => {
+      if (!prompt?.textContent) return;
+      await navigator.clipboard.writeText(prompt.textContent);
+      if (status) status.textContent = 'Copiado';
+    });
+  </script>
 </Layout>
