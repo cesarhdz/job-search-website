@@ -1,0 +1,12 @@
+{
+  "name": "LinkedIn Jobs",
+  "status": "candidate",
+  "published": false,
+  "type": "aggregator",
+  "markets": [],
+  "profiles": [],
+  "workModes": [],
+  "languages": [],
+  "url": "https://www.linkedin.com/jobs/",
+  "alerts": true
+}
