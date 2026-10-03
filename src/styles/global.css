@@ -285,3 +285,18 @@ footer {
 .source-group .source-card h3 { margin: 0 0 .5rem; font-size: 1.25rem; }
 .source-group .source-card h3 a { text-decoration: none; }
 @media (max-width: 40rem) { .source-group-header { grid-template-columns: 1fr; gap: .25rem; } }
+
+.source-strategy > h2, .source-guide > h2 { font-size: clamp(2rem,5vw,3rem); }
+.source-choices { display: flex; flex-wrap: wrap; gap: .65rem; margin: 1.5rem 0 3rem; }
+.source-choice input { position: absolute; opacity: 0; pointer-events: none; }
+.source-choice span { display: block; padding: .7rem 1rem; border: 1px solid #d4d4d8; border-radius: 999px; background: white; cursor: pointer; }
+.source-choice input:checked + span { color: white; background: #18181b; border-color: #18181b; }
+.source-choice input:focus-visible + span { outline: 2px solid #18181b; outline-offset: 2px; }
+.prompt-builder { max-width: 52rem; padding: 2rem; border: 1px solid #e4e4e7; border-radius: .9rem; background: white; }
+.prompt-builder h2 { margin: .35rem 0 .5rem; }
+.prompt-builder > div > p:last-child { color: #52525b; }
+.prompt-builder pre, .source-prompt-detail pre { margin: 1.5rem 0 1rem; padding: 1.25rem; border-radius: .7rem; background: #f4f4f5; white-space: pre-wrap; font: inherit; line-height: 1.6; }
+.copy-status { margin-left: .75rem; color: #52525b; font-size: .9rem; }
+.source-guide { border-top: 1px solid #e4e4e7; }
+.source-access { font-size: .9rem; }
+.source-detail .detail-block p, .source-detail .detail-block li { color: #3f3f46; line-height: 1.7; }
