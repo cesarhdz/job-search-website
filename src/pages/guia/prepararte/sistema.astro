@@ -4,6 +4,10 @@ import Layout from '../../../layouts/Layout.astro';
 
 <Layout title="Configura tu sistema de búsqueda" description="Configura IA, memoria, tracking, rutina y reglas personales para mantener el control de tu búsqueda de trabajo.">
   <article class="guide-page">
+    <nav class="guide-context" aria-label="Recorrido de Prepararte">
+      <a href={`${import.meta.env.BASE_URL}#prepararte`}>← Todos los pasos</a>
+      <span>Prepararte · 4 de 4</span>
+    </nav>
     <header class="hero">
       <p class="eyebrow">Prepararte · 04</p>
       <h1>Configura tu sistema.</h1>
@@ -40,7 +44,10 @@ import Layout from '../../../layouts/Layout.astro';
       <p class="eyebrow">Siguiente paso</p>
       <h2>Empieza a encontrar oportunidades.</h2>
       <p>Ya tienes criterios, contexto, materiales y un sistema. El siguiente bloque es decidir dónde y cómo buscar.</p>
-      <a class="button primary" href={`${import.meta.env.BASE_URL}guia/#encontrar-oportunidades`}>Encontrar oportunidades →</a>
+      <nav class="guide-pagination" aria-label="Navegación entre pasos">
+        <a class="button" href={`${import.meta.env.BASE_URL}guia/prepararte/materiales/`}>← Paso anterior</a>
+        <a class="button primary" href={`${import.meta.env.BASE_URL}#encontrar-oportunidades`}>Siguiente etapa: encontrar oportunidades →</a>
+      </nav>
     </section>
   </article>
 </Layout>

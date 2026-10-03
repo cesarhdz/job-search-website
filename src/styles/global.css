@@ -143,52 +143,6 @@ footer {
 }
 
 
-.steps-section {
-  padding-top: 0;
-}
-
-.steps-grid {
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  gap: 1rem;
-  margin-top: 1rem;
-}
-
-.step-card {
-  display: flex;
-  min-height: 18rem;
-  flex-direction: column;
-  padding: 1.5rem;
-  background: white;
-  border: 1px solid #e4e4e7;
-  border-radius: .8rem;
-  text-decoration: none;
-  transition: transform 120ms ease, border-color 120ms ease;
-}
-
-.step-card:hover {
-  transform: translateY(-2px);
-  border-color: #a1a1aa;
-}
-
-.step-card h2 {
-  margin: .5rem 0;
-}
-
-.step-card > p:not(.stage-number) {
-  color: #52525b;
-}
-
-.step-link {
-  margin-top: auto;
-  padding-top: 1.5rem;
-  font-weight: 600;
-}
-
-.principle {
-  max-width: 52rem;
-}
-
 .guide-sections {
   display: grid;
   gap: 1rem;
@@ -212,24 +166,6 @@ footer {
   color: #52525b;
 }
 
-.section-overview {
-  margin-top: 5rem;
-}
-
-.section-overview h1 {
-  font-size: clamp(2.75rem, 5vw, 4rem);
-}
-
-.section-overview .topic-list a {
-  display: block;
-  text-decoration: none;
-}
-
-.section-overview .topic-list a:hover,
-.section-overview .topic-list a:focus-visible {
-  text-decoration: underline;
-}
-
 .topic-list {
   margin: 0;
   padding-left: 1.5rem;
@@ -240,34 +176,43 @@ footer {
   border-bottom: 1px solid #e4e4e7;
 }
 
-@media (max-width: 56rem) {
-  .steps-grid {
-    grid-template-columns: repeat(2, 1fr);
-  }
-}
-
 @media (max-width: 40rem) {
-  .steps-grid,
   .guide-section {
     grid-template-columns: 1fr;
   }
 
-  .step-card {
-    min-height: 14rem;
-  }
-
   .guide-section {
     gap: 1rem;
-  }
-
-  .section-overview {
-    margin-top: 2rem;
   }
 }
 
 
 .guide-page {
   max-width: 52rem;
+}
+
+.guide-context,
+.guide-pagination {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+}
+
+.guide-context {
+  margin-top: 3rem;
+  color: #52525b;
+  font-size: .9rem;
+}
+
+.guide-page .hero {
+  padding-top: 3rem;
+}
+
+.guide-pagination {
+  justify-content: flex-start;
+  margin-top: 1.5rem;
 }
 
 .guide-page > section {

@@ -4,6 +4,10 @@ import Layout from '../../../layouts/Layout.astro';
 
 <Layout title="Prepara tus materiales" description="Prepara un CV base, LinkedIn, portfolio y otros materiales reutilizables para tu búsqueda de trabajo.">
   <article class="guide-page">
+    <nav class="guide-context" aria-label="Recorrido de Prepararte">
+      <a href={`${import.meta.env.BASE_URL}#prepararte`}>← Todos los pasos</a>
+      <span>Prepararte · 3 de 4</span>
+    </nav>
     <header class="hero">
       <p class="eyebrow">Prepararte · 03</p>
       <h1>Prepara tus materiales.</h1>
@@ -40,7 +44,10 @@ import Layout from '../../../layouts/Layout.astro';
       <p class="eyebrow">Siguiente paso</p>
       <h2>Configura tu sistema.</h2>
       <p>Con la base lista, define cómo conservarás contexto y darás seguimiento a la búsqueda.</p>
-      <a class="button primary" href={`${import.meta.env.BASE_URL}guia/prepararte/sistema/`}>Continuar →</a>
+      <nav class="guide-pagination" aria-label="Navegación entre pasos">
+        <a class="button" href={`${import.meta.env.BASE_URL}guia/prepararte/perfil-profesional/`}>← Paso anterior</a>
+        <a class="button primary" href={`${import.meta.env.BASE_URL}guia/prepararte/sistema/`}>Siguiente: tu sistema →</a>
+      </nav>
     </section>
   </article>
 </Layout>

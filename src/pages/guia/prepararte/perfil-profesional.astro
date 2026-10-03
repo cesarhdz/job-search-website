@@ -4,6 +4,10 @@ import Layout from '../../../layouts/Layout.astro';
 
 <Layout title="Construye tu perfil profesional" description="Organiza tu experiencia, skills, evidencia, preferencias y gaps para reutilizarlos durante tu búsqueda de trabajo.">
   <article class="guide-page">
+    <nav class="guide-context" aria-label="Recorrido de Prepararte">
+      <a href={`${import.meta.env.BASE_URL}#prepararte`}>← Todos los pasos</a>
+      <span>Prepararte · 2 de 4</span>
+    </nav>
     <header class="hero">
       <p class="eyebrow">Prepararte · 02</p>
       <h1>Construye tu perfil profesional.</h1>
@@ -40,7 +44,10 @@ import Layout from '../../../layouts/Layout.astro';
       <p class="eyebrow">Siguiente paso</p>
       <h2>Prepara tus materiales.</h2>
       <p>Convierte ese perfil completo en piezas más pequeñas que puedas adaptar a cada oportunidad.</p>
-      <a class="button primary" href={`${import.meta.env.BASE_URL}guia/prepararte/materiales/`}>Continuar →</a>
+      <nav class="guide-pagination" aria-label="Navegación entre pasos">
+        <a class="button" href={`${import.meta.env.BASE_URL}guia/prepararte/definir-que-buscas/`}>← Paso anterior</a>
+        <a class="button primary" href={`${import.meta.env.BASE_URL}guia/prepararte/materiales/`}>Siguiente: materiales →</a>
+      </nav>
     </section>
   </article>
 </Layout>

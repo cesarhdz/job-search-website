@@ -4,6 +4,10 @@ import Layout from '../../../layouts/Layout.astro';
 
 <Layout title="Define qué buscas" description="Define rol, ubicación, compensación, tipo de empresa y restricciones antes de empezar tu búsqueda de trabajo.">
   <article class="guide-page">
+    <nav class="guide-context" aria-label="Recorrido de Prepararte">
+      <a href={`${import.meta.env.BASE_URL}#prepararte`}>← Todos los pasos</a>
+      <span>Prepararte · 1 de 4</span>
+    </nav>
     <header class="hero">
       <p class="eyebrow">Prepararte · 01</p>
       <h1>Define qué buscas.</h1>
@@ -40,7 +44,7 @@ import Layout from '../../../layouts/Layout.astro';
       <p class="eyebrow">Siguiente paso</p>
       <h2>Construye tu perfil profesional.</h2>
       <p>Ya sabes qué buscas. Ahora reúne la evidencia que usarás para demostrar por qué encajas.</p>
-      <a class="button primary" href={`${import.meta.env.BASE_URL}guia/prepararte/perfil-profesional/`}>Continuar →</a>
+      <a class="button primary" href={`${import.meta.env.BASE_URL}guia/prepararte/perfil-profesional/`}>Siguiente: perfil profesional →</a>
     </section>
   </article>
 </Layout>
