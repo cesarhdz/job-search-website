@@ -49,6 +49,10 @@ const sources = defineCollection({
     cost: z.string().optional(),
     accountRequired: z.boolean().optional(),
     alerts: z.boolean().optional(),
+    access: z.enum(['open', 'limited', 'restricted']).optional(),
+    searchInstructions: z.string().optional(),
+    aiInstructions: z.string().optional(),
+    prompt: z.string().optional(),
     lastReviewed: z.coerce.date().optional(),
   }),
 });
