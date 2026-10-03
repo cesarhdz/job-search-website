@@ -1,0 +1,53 @@
+---
+import Layout from '../../../layouts/Layout.astro';
+---
+
+<Layout title="Construye tu perfil profesional" description="Organiza tu experiencia, skills, evidencia, preferencias y gaps para reutilizarlos durante tu búsqueda de trabajo.">
+  <article class="guide-page">
+    <nav class="guide-context" aria-label="Recorrido de Prepararte">
+      <a href={`${import.meta.env.BASE_URL}#prepararte`}>← Todos los pasos</a>
+      <span>Prepararte · 2 de 4</span>
+    </nav>
+    <header class="hero">
+      <p class="eyebrow">Prepararte · 02</p>
+      <h1>Construye tu perfil profesional.</h1>
+      <p class="lede">Tu CV no debería ser la única fuente de verdad sobre tu experiencia. Construye primero un inventario más completo que puedas reutilizar.</p>
+    </header>
+
+    <section>
+      <h2>Qué necesitas lograr</h2>
+      <p>Tener un perfil base con suficiente contexto para evaluar vacantes, adaptar materiales y preparar entrevistas sin reconstruir tu historia cada vez.</p>
+    </section>
+
+    <section>
+      <h2>Lo mínimo que debes hacer</h2>
+      <ul>
+        <li>Registra roles, responsabilidades y cambios importantes de tu trayectoria.</li>
+        <li>Guarda resultados concretos: métricas, escala, lanzamientos, migraciones o mejoras.</li>
+        <li>Separa skills demostradas de tecnologías o conceptos que sólo conoces superficialmente.</li>
+        <li>Anota proyectos e historias que puedan servir como evidencia en entrevistas.</li>
+        <li>Mantén una lista explícita de gaps para no convertirlos accidentalmente en experiencia.</li>
+      </ul>
+    </section>
+
+    <section>
+      <h2>Qué puede hacer la IA por ti</h2>
+      <p>Puede ayudarte a estructurar notas, detectar evidencia que falta, relacionar experiencias con requisitos de una vacante y recuperar ejemplos relevantes cuando prepares una aplicación.</p>
+    </section>
+
+    <section>
+      <h2>Qué conviene que controles tú</h2>
+      <p>Revisa cualquier afirmación sobre tu experiencia. Una redacción más convincente no debe aumentar tu nivel de responsabilidad, convertir colaboración en ownership ni transformar familiaridad en experiencia práctica.</p>
+    </section>
+
+    <section class="next-step">
+      <p class="eyebrow">Siguiente paso</p>
+      <h2>Prepara tus materiales.</h2>
+      <p>Convierte ese perfil completo en piezas más pequeñas que puedas adaptar a cada oportunidad.</p>
+      <nav class="guide-pagination" aria-label="Navegación entre pasos">
+        <a class="button" href={`${import.meta.env.BASE_URL}guia/prepararte/definir-que-buscas/`}>← Paso anterior</a>
+        <a class="button primary" href={`${import.meta.env.BASE_URL}guia/prepararte/materiales/`}>Siguiente: materiales →</a>
+      </nav>
+    </section>
+  </article>
+</Layout>
