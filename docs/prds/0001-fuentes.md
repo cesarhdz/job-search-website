@@ -18,8 +18,9 @@ No debe convertirse en una lista infinita de links. Debe funcionar como un catá
 
 Una sección pública y estática en español que:
 
-- permita buscar y explorar fuentes;
-- explique los distintos tipos de fuentes;
+- ayude a elegir qué tipos de fuentes conviene usar;
+- genere prompts que permitan construir una lista personalizada con IA;
+- explique los distintos tipos de fuentes y muestre ejemplos curados;
 - tenga una página propia para cada fuente con información más detallada;
 - distinga entre fuentes descubiertas y fuentes editorialmente validadas;
 - permita crecer mediante contenido estructurado en el repositorio, sin backend;
@@ -159,18 +160,17 @@ No se requiere backend ni base de datos.
 
 ### /fuentes/
 
-Home y explorador del catálogo.
+Home y guía para construir una estrategia de fuentes.
 
 Debe incluir:
 
-- búsqueda;
-- resultados de fuentes publicadas;
-- filtros útiles;
-- búsquedas curadas/presets;
-- explicación breve de los tipos de fuentes;
-- acceso a la página individual de cada fuente.
+- selección de tipos de fuentes;
+- un prompt que se adapte a esa selección;
+- explicación de bolsas/agregadores, ATS, agencias y empresas;
+- ejemplos curados de fuentes importantes;
+- acceso a páginas individuales cuando aporten instrucciones operativas.
 
-La experiencia principal es **search-first**, no una lista dividida rígidamente en categorías.
+La experiencia principal es **guidance-first**. La IA personaliza la lista; el sitio aporta estructura, ejemplos, instrucciones y límites.
 
 ### /fuentes/tipos/
 
@@ -201,31 +201,23 @@ Esta página es el lugar donde puede crecer el detalle sin saturar el explorador
 
 Comentarios, experiencias comunitarias, ratings u otras señales pueden añadirse más adelante si existe una necesidad clara; no forman parte del dominio V1.
 
-## Búsqueda y filtros
+## Personalización con IA
 
-La búsqueda funciona completamente en cliente sobre contenido estático.
+El sitio no intenta competir con la IA como buscador. La interfaz permite seleccionar tipos de fuentes y construir un prompt reutilizable para obtener una lista adaptada al perfil, mercado y modalidad del usuario.
 
-Debe poder buscar como mínimo por:
+El prompt debe poder orientar la búsqueda por:
 
-- nombre;
-- descripción;
-- tipo;
-- mercado;
-- perfil;
-- modalidad.
+- rol y seniority;
+- ubicación y elegibilidad;
+- modalidad;
+- tipo de empresa;
+- tipos de fuentes seleccionados.
 
-Los filtros concretos se validarán con el primer dataset real antes de cerrar la UI.
+Cuando una fuente tenga restricciones para bots o automatización, la guía debe explicarlo y proponer una forma manual, mediante alertas o mediante resultados compartidos por el usuario.
 
-### Búsquedas curadas
+### Ejemplos curados
 
-La home puede ofrecer presets útiles sobre el mismo catálogo, por ejemplo:
-
-- Product en México;
-- Tech remoto internacional;
-- Engineering;
-- Data.
-
-No son perfiles de usuario ni contenido duplicado. Son combinaciones predefinidas de búsqueda/filtros.
+Las bolsas y agregadores importantes pueden mantenerse como un conjunto relativamente completo. Para ATS, agencias y empresas se priorizan ejemplos que enseñen el patrón de búsqueda en vez de intentar mantener directorios exhaustivos.
 
 ## JSON público
 
@@ -295,7 +287,7 @@ La persona mantiene el criterio editorial y puede revisar qué fuentes existen, 
 - [ ] M2b — Definir SourceType como contenido estructurado
 - [ ] M3 — Cargar y validar el dataset inicial
 - [x] M4 — Implementar `/fuentes/`, `/fuentes/tipos/` y páginas individuales
-- [ ] M5 — Agregar filtros y búsquedas curadas
+- [x] M5 — Agregar selección de fuentes y prompts personalizados
 - [ ] M6 — Exponer el catálogo público como JSON
 - [ ] M7 — Revisar copy, links, assets y metadata antes de publicar
 
@@ -303,7 +295,7 @@ La persona mantiene el criterio editorial y puede revisar qué fuentes existen, 
 
 - ¿Qué campos del schema sobreviven después de probar 5–10 fuentes reales?
 - ¿Qué taxonomía de SourceType describe mejor las fuentes reales sin crear categorías ambiguas?
-- ¿Qué filtros aportan realmente en V1?
-- ¿Qué búsquedas curadas son útiles para el lanzamiento?
+- ¿Qué información necesita cada tipo de fuente para generar un buen prompt?
+- ¿Qué bolsas y agregadores son suficientemente importantes para mantenerlos como catálogo?
 - ¿Qué assets visuales podemos usar consistentemente entre fuentes?
 - ¿Cuántas fuentes revisadas son suficientes para lanzar?
