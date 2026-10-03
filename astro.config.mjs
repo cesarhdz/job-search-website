@@ -2,5 +2,5 @@ import { defineConfig } from 'astro/config';
 
 export default defineConfig({
   site: 'https://cesarhdz.github.io',
-  base: '/job-search-website',
+  base: process.env.NODE_ENV === 'development' ? '/' : '/job-search-website/',
 });

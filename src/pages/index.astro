@@ -1,30 +1,39 @@
 ---
 import Layout from '../layouts/Layout.astro';
 
-const steps = [
+const sections = [
   {
+    id: 'prepararte',
     order: '01',
     title: 'Prepararte',
-    description: 'Define qué buscas, construye tu perfil y deja listos tus materiales y tu sistema.',
-    href: 'prepararte',
+    description: 'Construye una base clara antes de empezar a buscar.',
+    topics: [
+      { title: 'Define qué buscas', href: 'prepararte/definir-que-buscas' },
+      { title: 'Construye tu perfil profesional', href: 'prepararte/perfil-profesional' },
+      { title: 'Prepara tus materiales', href: 'prepararte/materiales' },
+      { title: 'Configura tu sistema', href: 'prepararte/sistema' },
+    ],
   },
   {
+    id: 'encontrar-oportunidades',
     order: '02',
     title: 'Encontrar oportunidades',
-    description: 'Elige buenas fuentes, mejora tus búsquedas y usa alertas y networking con intención.',
-    href: 'encontrar-oportunidades',
+    description: 'Descubre vacantes sin tener que revisar todo Internet.',
+    topics: ['Fuentes', 'Búsquedas y palabras clave', 'Alertas', 'Networking y referrals'].map((title) => ({ title })),
   },
   {
+    id: 'decidir-y-aplicar',
     order: '03',
     title: 'Decidir y aplicar',
-    description: 'Evalúa el fit y la empresa, prioriza oportunidades y prepara cada aplicación.',
-    href: 'decidir-y-aplicar',
+    description: 'Convierte muchas vacantes en pocas decisiones buenas.',
+    topics: ['Evalúa el fit', 'Evalúa la empresa', 'Prioriza y haz triage', 'Prepara la aplicación'].map((title) => ({ title })),
   },
   {
+    id: 'avanzar-y-cerrar',
     order: '04',
     title: 'Avanzar y cerrar',
-    description: 'Da seguimiento, prepara entrevistas, aprende del proceso y evalúa ofertas.',
-    href: 'avanzar-y-cerrar',
+    description: 'Maneja el proceso después de aplicar y lleva cada oportunidad hasta una decisión.',
+    topics: ['Tracking y follow-up', 'Entrevistas', 'Feedback y aprendizaje', 'Oferta y cierre'].map((title) => ({ title })),
   },
 ];
 ---
@@ -33,30 +42,21 @@ const steps = [
   <section class="hero">
     <p class="eyebrow">México primero · IA como herramienta de trabajo</p>
     <h1>Busca trabajo con IA, sin perder el control.</h1>
-    <p class="lede">
-      Una guía práctica para usar IA durante toda tu búsqueda: desde definir qué buscas hasta cerrar una oferta.
-    </p>
+    <p class="lede">Una guía práctica para usar IA durante toda tu búsqueda: desde definir qué buscas hasta cerrar una oferta.</p>
   </section>
 
-  <section class="section steps-section">
-    <p class="eyebrow">¿En qué parte de tu búsqueda estás?</p>
-    <div class="steps-grid">
-      {steps.map((step) => (
-        <a class="step-card" href={`${import.meta.env.BASE_URL}guia/#${step.href}`}>
-          <p class="stage-number">{step.order}</p>
-          <h2>{step.title}</h2>
-          <p>{step.description}</p>
-          <span class="step-link">Ver este paso →</span>
-        </a>
-      ))}
-    </div>
-  </section>
-
-  <section class="section principle">
-    <p class="eyebrow">La idea</p>
-    <h2>La IA puede buscar, analizar, escribir y preparar. Tú mantienes las decisiones.</h2>
-    <p class="lede">
-      El sitio reúne orientación, recursos curados y herramientas para avanzar más rápido sin delegar el control de tu búsqueda.
-    </p>
+  <section class="section guide-sections" id="pasos" aria-label="Pasos de la búsqueda">
+    {sections.map((section) => (
+      <article class="guide-section" id={section.id}>
+        <div>
+          <p class="stage-number">{section.order}</p>
+          <h2>{section.title}</h2>
+          <p>{section.description}</p>
+        </div>
+        <ol class="topic-list">
+          {section.topics.map((topic) => <li>{'href' in topic ? <a href={`${import.meta.env.BASE_URL}guia/${topic.href}/`}>{topic.title}</a> : topic.title}</li>)}
+        </ol>
+      </article>
+    ))}
   </section>
 </Layout>
