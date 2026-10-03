@@ -7,82 +7,78 @@ const publishedSources = allSources.filter((source) => source.data.published);
 const visibleSources = publishedSources.length > 0 ? publishedSources : allSources;
 const isPreview = publishedSources.length === 0;
 const groups = [
-  { type: 'aggregator', title: 'Bolsas y agregadores', description: 'Explora el mercado y mantén búsquedas recurrentes en catálogos amplios de vacantes.' },
-  { type: 'ats', title: 'ATS', description: 'Encuentra vacantes publicadas directamente por empresas en sus sistemas de contratación.' },
-  { type: 'agency', title: 'Agencias', description: 'Conecta con recruiters y agencias que trabajan mercados o perfiles específicos.' },
-  { type: 'company', title: 'Empresas', description: 'Sigue directamente las career pages de marcas grandes que te interesen.' },
+  { type:'aggregator', title:'Bolsas y agregadores', description:'Buenos para explorar el mercado y mantener alertas. Aquí sí conviene conocer las opciones grandes y elegir las que cubren tu mercado.' },
+  { type:'ats', title:'ATS', description:'Las empresas publican aquí sus propias vacantes. Greenhouse, Lever y Ashby suelen ser especialmente útiles para buscar directamente en compañías objetivo.' },
+  { type:'agency', title:'Agencias', description:'Útiles cuando trabajan tu mercado o especialidad. La IA puede ayudarte a identificar cuáles tienen sentido para tu perfil.' },
+  { type:'company', title:'Empresas', description:'No necesitas un directorio infinito: construye una lista pequeña de empresas objetivo y revisa sus career pages.' },
 ];
+const defaultPrompt = 'Ayúdame a construir una lista curada de fuentes para buscar trabajo. Considera mi rol, ubicación, modalidad de trabajo, seniority y tipo de empresa. Para cada fuente explica por qué encaja, cómo buscar ahí, si conviene usar alertas y qué limitaciones tiene para trabajar con IA.';
 ---
 
-<Layout title="Fuentes para encontrar trabajo" description="Catálogo curado de fuentes para encontrar oportunidades de trabajo desde México.">
+<Layout title="Fuentes para encontrar trabajo" description="Elige dónde buscar y usa IA para construir una lista de fuentes adaptada a tu búsqueda.">
   <section class="hero compact-hero">
     <p class="eyebrow">Encontrar oportunidades</p>
     <h1>Fuentes</h1>
-    <p class="lede">Encuentra lugares que vale la pena revisar según el tipo de búsqueda que estás haciendo. Combina distintas fuentes en lugar de depender de un solo sitio.</p>
+    <p class="lede">No necesitas buscar en todos lados. Elige los tipos de fuentes que tienen sentido para ti y usa IA para construir una lista pequeña y personalizada.</p>
   </section>
 
-  <section class="section source-explorer">
-    {isPreview && <div class="notice"><strong>Catálogo en construcción.</strong> Puedes explorar las fuentes candidatas mientras terminamos su revisión editorial.</div>}
-
-    <div class="source-search-wrap">
-      <span class="source-search-icon" aria-hidden="true">⌕</span>
-      <input id="source-search" class="source-search" type="search" aria-label="Buscar fuentes" placeholder="Buscar fuentes…" />
+  <section class="section source-strategy">
+    {isPreview && <div class="notice"><strong>Catálogo en construcción.</strong> Estamos probando esta guía con fuentes reales antes de publicarlas como recomendaciones editoriales.</div>}
+    <p class="eyebrow">1. Elige dónde buscar</p>
+    <h2>¿Qué tipos de fuentes quieres incluir?</h2>
+    <div class="source-choices">
+      {groups.map((group) => <label class="source-choice"><input type="checkbox" value={group.type} checked /><span>{group.title}</span></label>)}
     </div>
 
-    <div id="source-results">
-      {groups.map((group) => {
-        const sources = visibleSources.filter((source) => source.data.type === group.type);
-        if (sources.length === 0) return null;
-        return (
-          <section class="source-group" data-group={group.type}>
-            <header class="source-group-header">
-              <h2>{group.title}</h2>
-              <p>{group.description}</p>
-            </header>
-            <div class="source-grid">
-              {sources.map((source) => (
-                <article class="source-card" data-source={`${source.data.name} ${source.data.description ?? ''} ${source.data.markets.join(' ')} ${source.data.profiles.join(' ')} ${source.data.workModes.join(' ')}`.toLowerCase()}>
-                  <h3><a href={`${import.meta.env.BASE_URL}fuentes/${source.id}/`}>{source.data.name}</a></h3>
-                  <p>{source.data.description ?? (isPreview ? 'Pendiente de revisión editorial.' : '')}</p>
-                  <a class="text-link" href={`${import.meta.env.BASE_URL}fuentes/${source.id}/`}>Ver fuente →</a>
-                </article>
-              ))}
-            </div>
-          </section>
-        );
-      })}
+    <div class="prompt-builder">
+      <div>
+        <p class="eyebrow">2. Llévatelo a tu IA</p>
+        <h2>Construye tu lista de fuentes</h2>
+        <p>La selección anterior ajusta el prompt. Tu IA puede combinarla con lo que ya sabe de tu perfil o preguntarte lo que falte.</p>
+      </div>
+      <pre id="source-prompt">{defaultPrompt}</pre>
+      <button id="copy-source-prompt" class="button primary" type="button">Copiar prompt</button>
+      <span id="copy-status" class="copy-status" aria-live="polite"></span>
     </div>
-    <p id="source-empty" class="source-empty" hidden>No encontramos fuentes con esa búsqueda.</p>
   </section>
 
-  <script>
-    const input = document.querySelector('#source-search');
-    const groups = [...document.querySelectorAll('[data-group]')];
-    const empty = document.querySelector('#source-empty');
+  <section class="section source-guide">
+    <p class="eyebrow">3. Entiende las fuentes</p>
+    <h2>Cómo usar cada tipo</h2>
+    {groups.map((group) => {
+      const sources = visibleSources.filter((source) => source.data.type === group.type);
+      return <section class="source-group">
+        <header class="source-group-header"><h2>{group.title}</h2><p>{group.description}</p></header>
+        {sources.length > 0 && <div class="source-grid">
+          {sources.map((source) => <article class="source-card">
+            <h3><a href={`${import.meta.env.BASE_URL}fuentes/${source.id}/`}>{source.data.name}</a></h3>
+            <p>{source.data.description ?? 'Ejemplo de este tipo de fuente.'}</p>
+            {source.data.access && <p class="source-access">Acceso con IA: <strong>{source.data.access === 'open' ? 'más directo' : source.data.access === 'limited' ? 'limitado' : 'requiere cuidado'}</strong></p>}
+            <a class="text-link" href={`${import.meta.env.BASE_URL}fuentes/${source.id}/`}>Cómo buscar aquí →</a>
+          </article>)}
+        </div>}
+      </section>;
+    })}
+  </section>
 
-    const update = () => {
-      const query = input instanceof HTMLInputElement ? input.value.trim().toLowerCase() : '';
-      let totalVisible = 0;
+  <script define:vars={{ defaultPrompt }}>
+    const choices = [...document.querySelectorAll('.source-choice input')];
+    const prompt = document.querySelector('#source-prompt');
+    const copy = document.querySelector('#copy-source-prompt');
+    const status = document.querySelector('#copy-status');
+    const labels = { aggregator:'bolsas y agregadores', ats:'ATS', agency:'agencias y recruiters', company:'career pages de empresas objetivo' };
 
-      groups.forEach((group) => {
-        if (!(group instanceof HTMLElement)) return;
-        const cards = [...group.querySelectorAll('[data-source]')];
-        let groupVisible = 0;
-
-        cards.forEach((card) => {
-          if (!(card instanceof HTMLElement)) return;
-          const matches = card.dataset.source?.includes(query) ?? false;
-          card.hidden = !matches;
-          if (matches) groupVisible += 1;
-        });
-
-        group.hidden = groupVisible === 0;
-        totalVisible += groupVisible;
-      });
-
-      if (empty instanceof HTMLElement) empty.hidden = totalVisible > 0;
+    const updatePrompt = () => {
+      const selected = choices.filter((choice) => choice instanceof HTMLInputElement && choice.checked).map((choice) => labels[choice.value]);
+      const scope = selected.length ? selected.join(', ') : 'las fuentes que consideres más relevantes';
+      if (prompt) prompt.textContent = `Ayúdame a construir una lista curada de fuentes para buscar trabajo, enfocada en ${scope}. Considera mi rol, ubicación, modalidad de trabajo, seniority y tipo de empresa. Para cada fuente explica por qué encaja, cómo buscar ahí, si conviene usar alertas y qué limitaciones tiene para trabajar con IA. Si una fuente restringe bots o automatización, no intentes automatizarla: explícame cómo configurarla o revisarla manualmente.`;
     };
 
-    input?.addEventListener('input', update);
+    choices.forEach((choice) => choice.addEventListener('change', updatePrompt));
+    copy?.addEventListener('click', async () => {
+      if (!prompt?.textContent) return;
+      await navigator.clipboard.writeText(prompt.textContent);
+      if (status) status.textContent = 'Copiado';
+    });
   </script>
 </Layout>
