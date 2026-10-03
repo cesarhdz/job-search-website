@@ -1,0 +1,28 @@
+{
+  "name": "LinkedIn Jobs",
+  "status": "candidate",
+  "published": false,
+  "type": "aggregator",
+  "markets": [
+    "global"
+  ],
+  "profiles": [],
+  "workModes": [
+    "onsite",
+    "hybrid",
+    "remote"
+  ],
+  "languages": [],
+  "url": "https://www.linkedin.com/jobs/",
+  "alerts": true,
+  "accountRequired": true,
+  "access": "restricted",
+  "description": "Una de las bolsas de trabajo más amplias para roles profesionales y búsquedas por empresa, ubicación o modalidad.",
+  "bestFor": "Explorar el mercado, seguir empresas y mantener alertas de búsquedas recurrentes.",
+  "limitations": [
+    "LinkedIn restringe crawlers, bots y otras formas de automatización no autorizada. Conviene usar la IA para diseñar la búsqueda y analizar resultados que tú abras o compartas."
+  ],
+  "searchInstructions": "Define rol, ubicación, modalidad y empresas objetivo; crea búsquedas guardadas y alertas en LinkedIn para recibir nuevas vacantes.",
+  "aiInstructions": "Pide a la IA que prepare queries, variantes de títulos y criterios de filtrado. Después comparte enlaces o vacantes concretas para evaluarlas.",
+  "prompt": "Ayúdame a diseñar búsquedas de LinkedIn Jobs para mi perfil. Propón títulos alternativos, ubicaciones, modalidad y filtros. No intentes automatizar LinkedIn; dame búsquedas concretas que pueda guardar como alertas."
+}

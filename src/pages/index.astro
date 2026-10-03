@@ -8,10 +8,10 @@ const sections = [
     title: 'Prepararte',
     description: 'Construye una base clara antes de empezar a buscar.',
     topics: [
-      { title: 'Define qué buscas', href: 'prepararte/definir-que-buscas' },
-      { title: 'Construye tu perfil profesional', href: 'prepararte/perfil-profesional' },
-      { title: 'Prepara tus materiales', href: 'prepararte/materiales' },
-      { title: 'Configura tu sistema', href: 'prepararte/sistema' },
+      { title: 'Define qué buscas', href: 'guia/prepararte/definir-que-buscas' },
+      { title: 'Construye tu perfil profesional', href: 'guia/prepararte/perfil-profesional' },
+      { title: 'Prepara tus materiales', href: 'guia/prepararte/materiales' },
+      { title: 'Configura tu sistema', href: 'guia/prepararte/sistema' },
     ],
   },
   {
@@ -19,7 +19,10 @@ const sections = [
     order: '02',
     title: 'Encontrar oportunidades',
     description: 'Descubre vacantes sin tener que revisar todo Internet.',
-    topics: ['Fuentes', 'Búsquedas y palabras clave', 'Alertas', 'Networking y referrals'].map((title) => ({ title })),
+    topics: [
+      { title: 'Fuentes', href: 'fuentes' },
+      ...['Búsquedas y palabras clave', 'Alertas', 'Networking y referrals'].map((title) => ({ title })),
+    ],
   },
   {
     id: 'decidir-y-aplicar',
@@ -54,7 +57,7 @@ const sections = [
           <p>{section.description}</p>
         </div>
         <ol class="topic-list">
-          {section.topics.map((topic) => <li>{'href' in topic ? <a href={`${import.meta.env.BASE_URL}guia/${topic.href}/`}>{topic.title}</a> : topic.title}</li>)}
+          {section.topics.map((topic) => <li>{'href' in topic ? <a href={`${import.meta.env.BASE_URL}${topic.href}/`}>{topic.title}</a> : topic.title}</li>)}
         </ol>
       </article>
     ))}

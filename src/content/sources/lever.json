@@ -1,0 +1,21 @@
+{
+  "name": "Lever",
+  "status": "candidate",
+  "published": false,
+  "type": "ats",
+  "markets": [
+    "global"
+  ],
+  "profiles": [],
+  "workModes": [],
+  "languages": [],
+  "access": "open",
+  "description": "ATS con job sites públicos por empresa y una Postings API para vacantes publicadas.",
+  "bestFor": "Revisar directamente las vacantes de empresas que usan Lever.",
+  "limitations": [
+    "No ofrece una búsqueda full-text global de todas las empresas desde su Postings API."
+  ],
+  "searchInstructions": "Identifica empresas objetivo que usen jobs.lever.co y revisa su job site; combina empresa, título y ubicación.",
+  "aiInstructions": "Los postings publicados son públicos y Lever documenta una API de postings por empresa, lo que facilita consultar vacantes de una compañía conocida.",
+  "prompt": "Identifica empresas relevantes para mi perfil que usen Lever. Dame sus job sites oficiales y qué títulos o ubicaciones debería revisar en cada uno."
+}

@@ -26,15 +26,12 @@ const {
       <a class="brand" href={import.meta.env.BASE_URL}>Buscar trabajo</a>
       <nav aria-label="Principal">
         <a href={`${import.meta.env.BASE_URL}#pasos`}>Guía</a>
+        <a href={`${import.meta.env.BASE_URL}fuentes/`}>Fuentes</a>
         <a href="https://github.com/cesarhdz/job-search-tools">Herramientas</a>
         <a href="https://github.com/cesarhdz/job-search-website">GitHub</a>
       </nav>
     </header>
-    <main>
-      <slot />
-    </main>
-    <footer>
-      <p>Guía y herramientas abiertas para buscar trabajo con IA.</p>
-    </footer>
+    <main><slot /></main>
+    <footer><p>Guía y herramientas abiertas para buscar trabajo con IA.</p></footer>
   </body>
 </html>

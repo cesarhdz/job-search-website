@@ -1,0 +1,21 @@
+{
+  "name": "Ashby",
+  "status": "candidate",
+  "published": false,
+  "type": "ats",
+  "markets": [
+    "global"
+  ],
+  "profiles": [],
+  "workModes": [],
+  "languages": [],
+  "access": "open",
+  "description": "ATS frecuente en compañías tecnológicas con job boards públicos y un endpoint público para postings.",
+  "bestFor": "Buscar directamente en job boards de empresas tecnológicas que usan Ashby.",
+  "limitations": [
+    "El endpoint público funciona por job board; primero necesitas identificar las empresas relevantes."
+  ],
+  "searchInstructions": "Construye una lista de empresas objetivo que usen jobs.ashbyhq.com y revisa sus boards por rol y ubicación.",
+  "aiInstructions": "Ashby documenta un Job Postings API público para las vacantes publicadas de un job board, por lo que es una fuente relativamente accesible para herramientas de IA.",
+  "prompt": "Busca empresas relevantes para mi perfil que publiquen en Ashby. Dame sus job boards oficiales y revisa qué títulos, ubicaciones y modalidades debería priorizar."
+}

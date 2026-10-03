@@ -1,0 +1,26 @@
+{
+  "name": "Remote.co",
+  "status": "candidate",
+  "published": false,
+  "type": "aggregator",
+  "markets": [
+    "global"
+  ],
+  "profiles": [],
+  "workModes": [
+    "remote"
+  ],
+  "languages": [
+    "en"
+  ],
+  "url": "https://remote.co/remote-jobs/",
+  "access": "open",
+  "description": "Bolsa especializada en trabajo remoto con categorías profesionales y vacantes internacionales.",
+  "bestFor": "Explorar oportunidades remotas y descubrir empresas que contratan equipos distribuidos.",
+  "limitations": [
+    "Que una vacante sea remota no significa que acepte candidatos desde cualquier país; verifica siempre restricciones geográficas."
+  ],
+  "searchInstructions": "Revisa categorías relevantes y confirma en cada posting desde qué países o regiones se puede trabajar.",
+  "aiInstructions": "Pide a la IA que encuentre vacantes relevantes y que valide explícitamente ubicación, modalidad y restricciones antes de considerarlas.",
+  "prompt": "Busca oportunidades relevantes para mi perfil en Remote.co. Prioriza las que pueda realizar desde mi ubicación y verifica las restricciones geográficas antes de recomendarlas."
+}

@@ -1,0 +1,21 @@
+{
+  "name": "Greenhouse",
+  "status": "candidate",
+  "published": false,
+  "type": "ats",
+  "markets": [
+    "global"
+  ],
+  "profiles": [],
+  "workModes": [],
+  "languages": [],
+  "access": "open",
+  "description": "ATS usado por muchas empresas para publicar sus job boards y recibir aplicaciones.",
+  "bestFor": "Encontrar vacantes directamente en páginas de carrera de empresas que usan Greenhouse.",
+  "limitations": [
+    "No es una bolsa global única: cada empresa mantiene su propio job board."
+  ],
+  "searchInstructions": "Busca empresas relevantes que usen Greenhouse y revisa sus job boards directamente; combina el dominio del ATS con títulos, ubicación o empresa.",
+  "aiInstructions": "La estructura pública de los job boards suele permitir que una IA encuentre y lea postings concretos cuando están indexados o accesibles.",
+  "prompt": "Identifica empresas relevantes para mi búsqueda que publiquen sus vacantes en Greenhouse. Para cada una, dame su job board oficial y las búsquedas o títulos que conviene revisar."
+}
