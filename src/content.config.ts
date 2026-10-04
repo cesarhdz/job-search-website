@@ -29,4 +29,32 @@ const resources = defineCollection({
   }),
 });
 
-export const collections = { stages, resources };
+const sources = defineCollection({
+  loader: glob({ pattern: '**/*.{yaml,yml,json}', base: './src/content/sources' }),
+  schema: z.object({
+    name: z.string(),
+    url: z.string().url().optional(),
+    status: z.enum(['candidate', 'reviewed']).default('candidate'),
+    published: z.boolean().default(false),
+    type: z.enum(['company', 'agency', 'ats', 'aggregator', 'email', 'web']),
+    markets: z.array(z.string()).default([]),
+    profiles: z.array(z.string()).default([]),
+    workModes: z.array(z.string()).default([]),
+    languages: z.array(z.string()).default([]),
+    description: z.string().optional(),
+    bestFor: z.string().optional(),
+    limitations: z.array(z.string()).default([]),
+    logo: z.string().optional(),
+    image: z.string().optional(),
+    cost: z.string().optional(),
+    accountRequired: z.boolean().optional(),
+    alerts: z.boolean().optional(),
+    access: z.enum(['open', 'limited', 'restricted']).optional(),
+    searchInstructions: z.string().optional(),
+    aiInstructions: z.string().optional(),
+    prompt: z.string().optional(),
+    lastReviewed: z.coerce.date().optional(),
+  }),
+});
+
+export const collections = { stages, resources, sources };
