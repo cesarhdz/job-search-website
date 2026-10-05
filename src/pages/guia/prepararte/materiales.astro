@@ -1,5 +1,9 @@
 ---
 import Layout from '../../../layouts/Layout.astro';
+import { getCollection } from 'astro:content';
+
+const resources = (await getCollection('resources'))
+  .filter(({ data }) => data.stage === 'prepare-your-materials' && data.status === 'reviewed');
 ---
 
 <Layout title="Prepara tus materiales" description="Prepara un CV base, LinkedIn, portfolio y otros materiales reutilizables para tu búsqueda de trabajo.">
@@ -27,6 +31,18 @@ import Layout from '../../../layouts/Layout.astro';
         <li>Alinea titular, resumen y experiencia de LinkedIn con ese posicionamiento.</li>
         <li>Usa portfolio o casos de estudio cuando permitan mostrar trabajo que el CV sólo puede resumir.</li>
         <li>Guarda versiones y evita editar el único documento que contiene tu información completa.</li>
+      </ul>
+    </section>
+
+    <section>
+      <h2>Recursos</h2>
+      <ul>
+        {resources.map(({ data }) => (
+          <li>
+            <a href={data.url} target="_blank" rel="noopener noreferrer">{data.title}</a>
+            {' — '}{data.summary}
+          </li>
+        ))}
       </ul>
     </section>
 
